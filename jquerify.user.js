@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            jQuerify
-// @namespace       http://github.com/taeram/jquerify-user-script
+// @namespace       http://github.com/taeram/user-scripts
 // @description     Inject jQuery into every page
 // @include         *
 // @copyright       Jesse Patching
