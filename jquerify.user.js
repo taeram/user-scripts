@@ -5,7 +5,7 @@
 // @include         *
 // @copyright       Jesse Patching
 // @version         1.0.0
-// @license         http://opensource.org/licenses/MIT
+// @license    MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // ==/UserScript==
 
 var jQueryFound = (typeof(jQuery) !== 'undefined');
