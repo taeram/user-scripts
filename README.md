@@ -1,4 +1,5 @@
-jquerify-user-script
-====================
+Taeram's User Scripts
+=====================
 
-jQuerify user script for GreaseMonkey (Firefox) or TamperData (Chrome)
+* Environment Canada Reloader - Reloads the Environment Canada website once an hour.
+* jQuerify - Adds jQuery to all sites
