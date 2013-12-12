@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          The Onion
 // @namespace     https://github.com/taeram/user-scripts
-// @version       1.0.0
+// @version       1.0.1
 // @description   Tidies theonion.com
 // @match         http://*.theonion.com/*
 // @license       MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
