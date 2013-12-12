@@ -9,10 +9,28 @@
 // @downloadURL   https://raw.github.com/taeram/user-scripts/master/tidy-theonion.user.js
 // ==/UserScript==
 
-if ($('#gregbox-outer').length > 0) {
-	var gregbox = $('#gregbox-outer');
-    $(gregbox).next().remove()
-    $(gregbox).next().remove()
-    $(gregbox).next().remove()
-    $(gregbox).remove();
+function tidy() {
+    // Stop if we haven't found the gregbox after a number of retries
+    timerCount++;
+    if (timerCount > 50) {
+        return clearTimeout(timer);
+    }
+
+    // Do we have a gregbox?
+    var gregbox = $('#gregbox-outer');
+    if ($(gregbox).length > 0) {
+        $(gregbox).next().remove()
+        $(gregbox).next().remove()
+        $(gregbox).next().remove()
+        $(gregbox).remove();
+
+        return clearTimeout(timer);
+    }
+
+    // Nothing found yet, keep trying
+    setTimeout(tidy, 500);
 }
+
+// Cevin Key Attack Mode Go!
+var timerCount = 0;
+tidy();
