@@ -2,26 +2,26 @@
 // @name            SABnzbd Remove All Orphaned Jobs
 // @namespace       http://github.com/taeram/user-scripts
 // @description     Remove all orphaned jobs from the SABnzbd /status/ page
-// @include         */#/status/
+// @include         *
 // @copyright       Jesse Patching
-// @version         1.0.0
+// @version         1.0.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/sabnzbd.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/sabnzbd.user.js
 // ==/UserScript==  
 
-// jQuerify the page
-var jQueryFound = (typeof(jQuery) !== 'undefined');
-if (!jQueryFound) {
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js";
-    document.getElementsByTagName("body")[0].appendChild(script);
-}
+if (window.location.hash.match(/\/status\//) && $('#catTable').length > 0) {
+    // jQuerify the page
+    var jQueryFound = (typeof(jQuery) !== 'undefined');
+    if (!jQueryFound) {
+        script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js";
+        document.getElementsByTagName("body")[0].appendChild(script);
+    }
 
-if (window.location.hash.match(/\/status\//)) {
     // Add  a button
-    $('#catTable').prepend('<button id="removeAllOrphanedJobs" style="position: absolute; right: 0; top: 0">Remove All Orphaned Jobs</button>');
+    $('#catTable').prepend('<button id="removeAllOrphanedJobs">Remove All Orphaned Jobs</button>');
     $('#removeAllOrphanedJobs').on('click', removeAllOrphanedJobs);
 }
 
