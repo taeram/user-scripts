@@ -4,25 +4,33 @@
 // @description     Remove all orphaned jobs from the SABnzbd /status/ page
 // @include         *
 // @copyright       Jesse Patching
-// @version         1.0.1
+// @version         1.0.2
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/sabnzbd.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/sabnzbd.user.js
 // ==/UserScript==  
 
-if (window.location.hash.match(/\/status\//) && $('#catTable').length > 0) {
-    // jQuerify the page
-    var jQueryFound = (typeof(jQuery) !== 'undefined');
-    if (!jQueryFound) {
-        script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js";
-        document.getElementsByTagName("body")[0].appendChild(script);
-    }
+var buttonName = 'removeAllOrphanedJobs';
 
-    // Add  a button
-    $('#catTable').prepend('<button id="removeAllOrphanedJobs">Remove All Orphaned Jobs</button>');
-    $('#removeAllOrphanedJobs').on('click', removeAllOrphanedJobs);
+// jQuerify the page
+var jQueryFound = (typeof(jQuery) !== 'undefined');
+if (!jQueryFound) {
+    script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js";
+    document.getElementsByTagName("body")[0].appendChild(script);
+}
+
+function addButton() {
+    if ($('#' + buttonName).length > 0) {
+        return false;
+    }
+    
+    if (window.location.hash.match(/\/status\//) && $('#catTable').length > 0) {
+        // Add  a button
+        $('#catTable').before('<button id="' + buttonName + '">Remove All Orphaned Jobs</button>');
+        $('#' + buttonName).on('click', removeAllOrphanedJobs);
+    }
 }
 
 function removeAllOrphanedJobs() {
@@ -43,3 +51,6 @@ function removeOrphan(element) {
         console.log('error', err);
     });
 }
+
+setInterval(addButton, 250);
+    
