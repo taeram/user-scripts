@@ -1,18 +1,16 @@
 // ==UserScript==
 // @name         Auto Sell Items using Enhanced Steam Google Chrome plugin
 // @namespace    http://github.com/taeram/user-scripts/
-// @version      1.0.0
+// @version      1.1.0
 // @description  Auto sell items in your Steam Inventory using the "Quick Sell" feature of the Enhanced Steam google chrome plugin: https://chrome.google.com/webstore/detail/enhanced-steam/okadibdjfemgnhjiembecghcbfknbfhg
 // @author       You
 // @match        https://steamcommunity.com/id/*/inventory/
 // @grant        none
-// @license       MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
-// @updateURL     https://raw.github.com/taeram/user-scripts/master/auto-sell-steam-items.user.js
-// @downloadURL   https://raw.github.com/taeram/user-scripts/master/auto-sell-steam-items.user.js
 // ==/UserScript==
 
-var jQueryFound = (typeof(jQuery) !== 'undefined');
+var reloadPageInterval = 300; // seconds
 
+var jQueryFound = (typeof(jQuery) !== 'undefined');
 if (!jQueryFound) {
     script = document.createElement("script");
     script.type = "text/javascript";
@@ -52,13 +50,30 @@ function autoSellAnItem() {
             }, 2000);
             return;
         }
-    }    
+    }
+    
+    // Reload the page and wait for more items to appear
+    setTimeout(function () {
+        window.location.reload();
+    }, reloadPageInterval * 1000);
 }
 
 // Add an "Auto Sell" button
-var autoSellInterval = null;
 var autoSellButton = jQuery('<button class="btn_green_white_innerfade btn_medium" style="margin-right: 12px"><span>Auto-Sell Inventory</span></button>').prependTo('.inventory_rightnav');
 jQuery(autoSellButton).on('click', function () {
+    // Turn off auto sell if the button is clicked again
+    if (localStorage.getItem('auto_sell_enabled') == "true") {
+        localStorage.setItem('auto_sell_enabled', false);
+        return;
+    }
+    
+    // Enable auto selling so it persists between page loads
+    localStorage.setItem('auto_sell_enabled', true);
+    
     autoSellAnItem();
-    autoSellInterval = setInterval(autoSellAnItem, 10000);
 });
+
+// Automatically try and sell something if the button is enabled
+if (localStorage.getItem('auto_sell_enabled') == "true") {
+    autoSellAnItem();
+}
