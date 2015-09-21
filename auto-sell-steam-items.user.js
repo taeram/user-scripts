@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Sell Items using Enhanced Steam Google Chrome plugin
 // @namespace    http://github.com/taeram/user-scripts/
-// @version      1.1.0
+// @version      1.1.1
 // @description  Auto sell items in your Steam Inventory using the "Quick Sell" feature of the Enhanced Steam google chrome plugin: https://chrome.google.com/webstore/detail/enhanced-steam/okadibdjfemgnhjiembecghcbfknbfhg
 // @author       You
 // @match        https://steamcommunity.com/id/*/inventory/
@@ -53,6 +53,7 @@ function autoSellAnItem() {
     }
     
     // Reload the page and wait for more items to appear
+    console.log("Didn't find anything to sell, waiting to reload the page in " + reloadPageInterval + " seconds");
     setTimeout(function () {
         window.location.reload();
     }, reloadPageInterval * 1000);
@@ -75,5 +76,6 @@ jQuery(autoSellButton).on('click', function () {
 
 // Automatically try and sell something if the button is enabled
 if (localStorage.getItem('auto_sell_enabled') == "true") {
-    autoSellAnItem();
+    // Wait for the page to load
+    setTimeout(autoSellAnItem, 5000);
 }
