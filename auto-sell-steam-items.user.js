@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Sell Items using Enhanced Steam Google Chrome plugin
 // @namespace    http://github.com/taeram/user-scripts/
-// @version      1.1.1
+// @version      1.2.0
 // @description  Auto sell items in your Steam Inventory using the "Quick Sell" feature of the Enhanced Steam google chrome plugin: https://chrome.google.com/webstore/detail/enhanced-steam/okadibdjfemgnhjiembecghcbfknbfhg
 // @author       You
 // @match        https://steamcommunity.com/id/*/inventory/
@@ -26,8 +26,9 @@ function autoSellAnItem() {
         if (!isGems && !isSold) {
             jQuery(items[i]).find('.inventory_item_link').click();
             setTimeout(function () {
-                var itemName = jQuery('.item_desc_description .hover_item_name').text();
-                console.log("Attempting to sell " + itemName);
+                var itemName = jQuery('.item_desc_description:visible .hover_item_name').first().text();
+                var itemType = jQuery('.item_desc_description:visible .item_desc_game_info > div:last').first().text();
+                console.log("Attempting to sell " + itemName + " (" + itemType + ")");
                 var marketActions = jQuery('.item_market_actions');
                 for (var j=0; j < marketActions.length; j++) {
                     if (jQuery(marketActions[j]).is(':visible')) {
@@ -47,7 +48,7 @@ function autoSellAnItem() {
                         }
                     }
                 }
-            }, 2000);
+            }, 3000);
             return;
         }
     }
@@ -72,10 +73,15 @@ jQuery(autoSellButton).on('click', function () {
     localStorage.setItem('auto_sell_enabled', true);
     
     autoSellAnItem();
+    setInterval(autoSellAnItem, 10000);
 });
 
 // Automatically try and sell something if the button is enabled
 if (localStorage.getItem('auto_sell_enabled') == "true") {
     // Wait for the page to load
-    setTimeout(autoSellAnItem, 5000);
+    setTimeout(function () {
+        autoSellAnItem();
+        setInterval(autoSellAnItem, 10000);
+    }, 5000);
+    
 }
