@@ -3,8 +3,9 @@
 // @namespace       http://github.com/taeram/user-scripts
 // @description     Calculate the number of days until you should redeem your bonus points for 10GB credit
 // @match           https://www.iptorrents.com/*
+// @grant           none
 // @copyright       Jesse Patching
-// @version         1.0.0
+// @version         1.0.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-time-until-spend-bonus-points.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-time-until-spend-bonus-points.user.js
