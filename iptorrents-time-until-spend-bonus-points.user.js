@@ -8,8 +8,7 @@
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-time-until-spend-bonus-points.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-time-until-spend-bonus-points.user.js
-// ==/UserScript==  
-
+// ==/UserScript==
 
 /* jshint -W097 */
 'use strict';
