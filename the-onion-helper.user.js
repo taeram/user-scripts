@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name          The Onion
+// @name          The Onion - Helper
 // @namespace     https://github.com/taeram/user-scripts
-// @version       1.0.2
+// @version       1.0.3
 // @description   Tidies theonion.com
 // @match         http://*.theonion.com/*
 // @license       MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
-// @updateURL     https://raw.github.com/taeram/user-scripts/master/tidy-theonion.user.js
-// @downloadURL   https://raw.github.com/taeram/user-scripts/master/tidy-theonion.user.js
+// @updateURL     https://raw.github.com/taeram/user-scripts/master/the-onion-helper.user.js
+// @downloadURL   https://raw.github.com/taeram/user-scripts/master/the-onion-helper.user.js
 // ==/UserScript==
 
 // Hide the overlays
