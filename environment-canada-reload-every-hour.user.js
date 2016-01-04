@@ -1,11 +1,17 @@
 // ==UserScript==
-// @name          Reload Environment Canada
-// @namespace     https://github.com/taeram/user-scripts
-// @version       1.0.0
-// @description   Reloads the Environment Canada website once an hour
-// @match         http://weather.gc.ca/city/pages/*
-// @license       MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
-// ==/UserScript==
+// @name            Environment Canada - Reload every hour
+// @namespace       http://github.com/taeram/user-scripts
+// @description     Reloads the Environment Canada website once an hour
+// @match           http://weather.gc.ca/city/pages/*
+// @copyright       Jesse Patching
+// @version         1.0.0
+// @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
+// @updateURL       https://raw.github.com/taeram/user-scripts/master/environment-canada-reload-every-hour.user.js
+// @downloadURL     https://raw.github.com/taeram/user-scripts/master/environment-canada-reload-every-hour.user.js
+// ==/UserScript==  
+
+/* jshint -W097 */
+'use strict';
 
 var reloadAfter = 3600; // seconds
 var secondsElapsed = 0;
