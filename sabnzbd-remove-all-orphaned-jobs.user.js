@@ -2,13 +2,17 @@
 // @name            SABnzbd Remove All Orphaned Jobs
 // @namespace       http://github.com/taeram/user-scripts
 // @description     Remove all orphaned jobs from the SABnzbd /status/ page
-// @include         *
+// @match           *#/status/
+// @grant           none
 // @copyright       Jesse Patching
-// @version         1.0.2
+// @version         1.0.3
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
-// @updateURL       https://raw.github.com/taeram/user-scripts/master/sabnzbd.user.js
-// @downloadURL     https://raw.github.com/taeram/user-scripts/master/sabnzbd.user.js
-// ==/UserScript==  
+// @updateURL       https://raw.github.com/taeram/user-scripts/master/sabnzbd-remove-all-orphaned-jobs.user.js
+// @downloadURL     https://raw.github.com/taeram/user-scripts/master/sabnzbd-remove-all-orphaned-jobs.user.js
+// ==/UserScript==
+
+/* jshint -W097 */
+'use strict';
 
 var buttonName = 'removeAllOrphanedJobs';
 
