@@ -1,13 +1,18 @@
 // ==UserScript==
-// @name       A Dark Room Helper
-// @namespace  http://github.com/taeram/
-// @version    0.0.2
-// @description  Helper for A Dark Room
-// @match      http://adarkroom.doublespeakgames.com/
-// @copyright  2013 Jesse Patching
-// @license    MIT http://opensource.org/licenses/MIT
-// @updateURL  https://gist.github.com/taeram/5891567/raw/a-dark-room.user.js
-// ==/UserScript==
+// @name            A Dark Room - Helper
+// @namespace       http://github.com/taeram/user-scripts
+// @description     Helper for A Dark Room
+// @match           http://adarkroom.doublespeakgames.com/
+// @grant           none
+// @copyright       Jesse Patching
+// @version         0.0.2
+// @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
+// @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
+// @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
+// ==/UserScript==  
+
+/* jshint -W097 */
+'use strict';
 
 $('body')
 	.append('<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>')
