@@ -5,7 +5,7 @@
 // @match           http://*.theonion.com/*
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.0.4
+// @version         1.0.5
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/the-onion-helper.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/the-onion-helper.user.js
