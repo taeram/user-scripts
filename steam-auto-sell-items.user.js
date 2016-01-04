@@ -4,7 +4,7 @@
 // @description     Auto sell items in your Steam Inventory using the "Quick Sell" feature of the Enhanced Steam google chrome plugin: https://chrome.google.com/webstore/detail/enhanced-steam/okadibdjfemgnhjiembecghcbfknbfhg
 // @match           https://steamcommunity.com/id/*/inventory/
 // @copyright       Jesse Patching
-// @version         1.2.0
+// @version         1.2.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-time-until-spend-bonus-points.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-time-until-spend-bonus-points.user.js
@@ -91,5 +91,4 @@ if (localStorage.getItem('auto_sell_enabled') == "true") {
         autoSellAnItem();
         setInterval(autoSellAnItem, 10000);
     }, 5000);
-    
 }
