@@ -11,6 +11,9 @@
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/the-onion-helper.user.js
 // ==/UserScript==  
 
+/* jshint -W097 */
+'use strict';
+
 // Hide the overlays
 $('head').append(
     '<style type="text/css">' + 
