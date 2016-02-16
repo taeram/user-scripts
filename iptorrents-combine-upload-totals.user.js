@@ -5,7 +5,7 @@
 // @match           https://www.iptorrents.com/peers?*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.0.1
+// @version         1.1.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -56,6 +56,11 @@ for (var i=1; i < rows.length; i++) {
         totalUploaded = parseFloat(totalUploaded, 2).toFixed(2);
     }
     $(uploadedEl).html(totalUploaded + ' ' + label);
+    
+    // If this torrent has been seeded for >= 2 weeks, colour it's background green
+    if ($(rows[i]).find('td:nth-child(8)').text().match(/to go/) == null) {
+        $(rows[i]).attr('style', 'background-color: #1F351F');
+    }
 }
 sortedRows = ksort(sortedRows);
 
