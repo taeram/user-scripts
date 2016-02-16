@@ -5,7 +5,7 @@
 // @match           https://www.iptorrents.com/peers?*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.0.0
+// @version         1.0.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -16,37 +16,50 @@
 
 var sortedRows = [];
 var rows = $('table.t1 tr');
-for (var i=2; i < rows.length; i++) {
+for (var i=1; i < rows.length; i++) {
+    // Grab the Uploaded column
     var uploadedEl = $(rows[i]).find('td:nth-child(4)');
-    var uploaded = uploadedEl.text().match(/([\d+\.]+) (\w+) \(([\d+\.]+) (\w+)\)$/);
-    if (uploaded) {
-        var currentUploaded = parseFloat(uploaded[1]);
-        if (uploaded[2] == 'GB') {
-            currentUploaded *= 1000;
-        }
-        
-        var oldUploaded = parseFloat(uploaded[3]);
-        if (uploaded[4] == 'GB') {
+    if (!uploadedEl.length > 0) {
+        $(rows[i]).remove();
+        continue;
+    }
+    
+    // Extract the "currently uploaded (uploaded from previous IP address)" values
+    var uploaded = uploadedEl.text().match(/([\d+\.]+) (\w+)( \(([\d+\.]+) (\w+)\))*$/);
+    
+    // Add in the currently uploaded values
+    var currentUploaded = parseFloat(uploaded[1]);
+    if (uploaded[2] == 'GB') {
+        currentUploaded *= 1000;
+    }
+
+    // Add in the previously uploaded values, if they exist
+    var oldUploaded = 0;
+    if (uploaded[3]) {
+        oldUploaded = parseFloat(uploaded[4]);
+        if (uploaded[5] == 'GB') {
             oldUploaded *= 1000;
         }
-        
-        var totalUploaded = parseFloat(currentUploaded + oldUploaded);
-        while (sortedRows[totalUploaded]) {
-            sortedRows[totalUploaded]++;
-        }
-        sortedRows[Math.round(totalUploaded)] = rows[i];
-        
-        var label = 'MB';
-        if (totalUploaded > 1000) {
-            label = 'GB';
-            totalUploaded /= 1000;
-            totalUploaded = parseFloat(totalUploaded, 2).toFixed(2);
-        }
-        $(uploadedEl).html(totalUploaded + ' ' + label);
     }
+
+    // Total the values, and create an indexed array
+    var totalUploaded = parseFloat(currentUploaded + oldUploaded);
+    while (sortedRows[totalUploaded]) {
+        sortedRows[totalUploaded]++;
+    }
+    sortedRows[Math.round(totalUploaded)] = rows[i];
+
+    var label = 'MB';
+    if (totalUploaded > 1000) {
+        label = 'GB';
+        totalUploaded /= 1000;
+        totalUploaded = parseFloat(totalUploaded, 2).toFixed(2);
+    }
+    $(uploadedEl).html(totalUploaded + ' ' + label);
 }
 sortedRows = ksort(sortedRows);
 
+// Add the rows back to the table sorted by upload totals, descending
 for (var i in sortedRows) {
     var html = $(sortedRows[i])[0].outerHTML;
     sortedRows[i].remove();
