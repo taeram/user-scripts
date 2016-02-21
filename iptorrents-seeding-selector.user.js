@@ -5,7 +5,7 @@
 // @match           https://www.iptorrents.com/t*
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.1.0
+// @version         1.1.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
@@ -34,7 +34,7 @@ for (var i=0; i < torrents.length; i++) {
         } else if (torrentSize.match(/MB/)) {
             torrentSize = parseFloat(torrentSize) * Math.pow(2, 20);
         }
-        console.log(numSeeders, seedToLeechRatio);
+        
         if (numSeeders > minNumSeeders && seedToLeechRatio > minSeedToLeechRatio && torrentSize <= maxTorrentSize) {
             $(torrent).attr('style', 'background-color: #1F351F');
         }
