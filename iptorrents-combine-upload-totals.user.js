@@ -5,7 +5,7 @@
 // @match           https://www.iptorrents.com/peers?*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.1.1
+// @version         1.1.2
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -26,7 +26,11 @@ for (var i=1; i < rows.length; i++) {
     
     // Extract the "currently uploaded (uploaded from previous IP address)" values
     var uploaded = uploadedEl.text().match(/([\d+\.]+) (\w+)( \(([\d+\.]+) (\w+)\))*$/);
-    
+    if (uploaded == null) {
+        // Skip rows with no uploaded values
+        continue;
+    }
+        
     // Add in the currently uploaded values
     var currentUploaded = parseFloat(uploaded[1]);
     if (uploaded[2] == 'GB') {
@@ -43,11 +47,11 @@ for (var i=1; i < rows.length; i++) {
     }
 
     // Total the values, and create an indexed array
-    var totalUploaded = parseFloat(currentUploaded + oldUploaded);
-    while (sortedRows[totalUploaded]) {
-        sortedRows[totalUploaded]++;
+    var totalUploaded = Math.round(parseFloat(currentUploaded + oldUploaded));
+    while (sortedRows[totalUploaded] !== undefined) {
+        totalUploaded++;
     }
-    sortedRows[Math.round(totalUploaded)] = rows[i];
+    sortedRows[totalUploaded] = rows[i];
 
     var label = 'MB';
     if (totalUploaded > 1000) {
