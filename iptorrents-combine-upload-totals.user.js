@@ -5,7 +5,7 @@
 // @match           https://www.iptorrents.com/peers?*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.2.0
+// @version         1.2.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -36,21 +36,31 @@ for (var i=1; i < rows.length; i++) {
     var seedingTime = null;
     var seedingTimeEl = $(rows[i]).find('td:nth-child(8)');
     if (seedingTimeEl) {
+        var time = null;
+        var unit = null;
         if (seedingTimeEl.text().match(/to go/)) {
             seedingTime = seedingTimeEl.text().match(/([\d+\.]+) (\w+) to go$/);
+            time = parseFloat(seedingTime[1]);
+            unit = seedingTime[2];
+            if (unit == 'weeks') {
+                daysSeeding = 14 - time * 7;
+            } else if (unit == 'days') {
+                daysSeeding = 14 - time;
+            }
         } else {
             seedingTime = seedingTimeEl.text().match(/([\d+\.]+) (\w+)$/);
+            time = parseFloat(seedingTime[1]);
+            unit = seedingTime[2];
+            
+            if (unit == 'weeks') {
+                daysSeeding = time * 7;
+            } else if (unit == 'months') {
+                daysSeeding = time * 30;
+            } else if (unit == 'days') {
+                daysSeeding = time;
+            }
         }
-        
-        var time = parseFloat(seedingTime[1]);
-        var unit = seedingTime[2];
-        if (unit == 'weeks') {
-            daysSeeding = time * 7;
-        } else if (unit == 'months') {
-            daysSeeding = time * 30;
-        } else if (unit == 'days') {
-            daysSeeding = time;
-        }
+        console.log(seedingTimeEl.text(), daysSeeding);        
     }
         
     // Add in the currently uploaded values
