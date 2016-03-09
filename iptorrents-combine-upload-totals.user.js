@@ -5,7 +5,7 @@
 // @match           https://www.iptorrents.com/peers?*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.1.2
+// @version         1.2.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -30,6 +30,28 @@ for (var i=1; i < rows.length; i++) {
         // Skip rows with no uploaded values
         continue;
     }
+    
+    // Grab the Seeding Time column
+    var daysSeeding = null;
+    var seedingTime = null;
+    var seedingTimeEl = $(rows[i]).find('td:nth-child(8)');
+    if (seedingTimeEl) {
+        if (seedingTimeEl.text().match(/to go/)) {
+            seedingTime = seedingTimeEl.text().match(/([\d+\.]+) (\w+) to go$/);
+        } else {
+            seedingTime = seedingTimeEl.text().match(/([\d+\.]+) (\w+)$/);
+        }
+        
+        var time = parseFloat(seedingTime[1]);
+        var unit = seedingTime[2];
+        if (unit == 'weeks') {
+            daysSeeding = time * 7;
+        } else if (unit == 'months') {
+            daysSeeding = time * 30;
+        } else if (unit == 'days') {
+            daysSeeding = time;
+        }
+    }
         
     // Add in the currently uploaded values
     var currentUploaded = parseFloat(uploaded[1]);
@@ -51,7 +73,8 @@ for (var i=1; i < rows.length; i++) {
     while (sortedRows[totalUploaded] !== undefined) {
         totalUploaded++;
     }
-    sortedRows[totalUploaded] = rows[i];
+    var mbPerDay = totalUploaded / daysSeeding;
+    sortedRows[mbPerDay] = rows[i];
 
     var label = 'MB';
     if (totalUploaded > 1000) {
@@ -59,7 +82,8 @@ for (var i=1; i < rows.length; i++) {
         totalUploaded /= 1000;
         totalUploaded = parseFloat(totalUploaded, 2).toFixed(2);
     }
-    $(uploadedEl).html(totalUploaded + ' ' + label);
+    
+    $(uploadedEl).html(totalUploaded + ' ' + label + ' (' + parseFloat(mbPerDay).toFixed(0) + ' MB/day)');
     
     // If this torrent has been seeded for >= 2 weeks, colour it's background green
     if ($(rows[i]).find('td:nth-child(8)').text().match(/to go/) == null) {
