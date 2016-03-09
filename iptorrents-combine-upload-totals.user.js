@@ -6,7 +6,7 @@
 // @match           https://iptorrents.com/peers?*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.3.0
+// @version         1.3.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -64,6 +64,8 @@ for (var i=1; i < rows.length; i++) {
                 daysSeeding = time * 30;
             } else if (unit == 'days') {
                 daysSeeding = time;
+            } else if (unit == 'hours') {
+                daysSeeding = time / 24;
             }
         }
         console.log(seedingTimeEl.text(), daysSeeding);        
