@@ -3,9 +3,10 @@
 // @namespace       http://github.com/taeram/user-scripts
 // @description     Calculate which are the best FreeLeech torrents to seed to bump up your ratio
 // @match           https://www.iptorrents.com/t*
+// @match           https://iptorrents.com/t*
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.1.1
+// @version         1.2.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
