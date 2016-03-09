@@ -3,9 +3,10 @@
 // @namespace       http://github.com/taeram/user-scripts
 // @description     Combine "Uploaded" totals on the Peers page
 // @match           https://www.iptorrents.com/peers?*;o=4
+// @match           https://iptorrents.com/peers?*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.2.2
+// @version         1.3.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
