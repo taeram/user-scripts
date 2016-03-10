@@ -97,7 +97,6 @@ for (var i=1; i < rows.length; i++) {
         totalUploaded++;
     }
     var mbPerDay = Math.round(totalUploaded / daysSeeding);
-    console.log(torrent, mbPerDay);
     sortedRows[mbPerDay] = rows[i];
 
     var label = 'MB';
