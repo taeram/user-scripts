@@ -6,7 +6,7 @@
 // @match           https://iptorrents.com/peers?*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.3.1
+// @version         1.3.2
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -18,6 +18,8 @@
 var sortedRows = [];
 var rows = $('table.t1 tr');
 for (var i=1; i < rows.length; i++) {
+    var torrent = $(rows[i]).find('td:nth-child(1)').text();
+    
     // Grab the Uploaded column
     var uploadedEl = $(rows[i]).find('td:nth-child(4)');
     if (!uploadedEl.length > 0) {
@@ -68,7 +70,10 @@ for (var i=1; i < rows.length; i++) {
                 daysSeeding = time / 24;
             }
         }
-        console.log(seedingTimeEl.text(), daysSeeding);        
+        
+        if (daysSeeding <= 0) {
+            daysSeeding = 1;
+        }
     }
         
     // Add in the currently uploaded values
@@ -87,11 +92,12 @@ for (var i=1; i < rows.length; i++) {
     }
 
     // Total the values, and create an indexed array
-    var totalUploaded = Math.round(parseFloat(currentUploaded + oldUploaded));
+    var totalUploaded = parseFloat(currentUploaded + oldUploaded);
     while (sortedRows[totalUploaded] !== undefined) {
         totalUploaded++;
     }
-    var mbPerDay = totalUploaded / daysSeeding;
+    var mbPerDay = Math.round(totalUploaded / daysSeeding);
+    console.log(torrent, mbPerDay);
     sortedRows[mbPerDay] = rows[i];
 
     var label = 'MB';
