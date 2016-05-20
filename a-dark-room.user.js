@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.1.0
+// @version         2.1.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
@@ -76,11 +76,6 @@
                     $('#end').click();
                 }
 
-                // Go home after the beasts attack
-                if ($('#end').length > 0) {
-                    $('#end').click();
-                }
-
                 // Investigate the scratching noises
                 if ($('#investigate').length > 0) {
                     $('#investigate').click();
@@ -92,6 +87,17 @@
                     $('#100furs').click();
                     $('#50furs').click();
                     $('#leave').click();
+                }
+
+                // Give the man some medicine
+                if ($('#help').length > 0) {
+                    $('#help').click();
+                    $('#bye').click();
+                }
+
+                // Go home after the beasts attack
+                if ($('#end').length > 0) {
+                    $('#end').click();
                 }
             }
         },
