@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.1.1
+// @version         2.1.2
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
@@ -86,6 +86,13 @@
                 if ($('#100furs').length > 0) {
                     $('#100furs').click();
                     $('#50furs').click();
+                    $('#leave').click();
+                }
+
+                // Give the wanderer some wood
+                if ($('#wood500').length > 0) {
+                    $('#wood500').click();
+                    $('#wood100').click();
                     $('#leave').click();
                 }
 
