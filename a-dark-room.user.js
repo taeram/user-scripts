@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.1.2
+// @version         2.1.3
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
@@ -89,6 +89,13 @@
                     $('#leave').click();
                 }
 
+                // Give the beggar some furs
+                if ($('#fur100').length > 0) {
+                    $('#fur500').click();
+                    $('#fur100').click();
+                    $('#leave').click();
+                }
+
                 // Give the wanderer some wood
                 if ($('#wood500').length > 0) {
                     $('#wood500').click();
@@ -102,9 +109,28 @@
                     $('#bye').click();
                 }
 
+                // Buy medicine to prevent the plague from spreading
+                if ($('#buyMedicine').length > 0) {
+                    $('#heal').click();
+                    $('#buyMedicine').click();
+                    $('#ignore').click();
+                }
+
+                // Grab a trait
+                if ($('#evasion').length > 0) {
+                    $('#evasion').click();
+                    $('#precision').click();
+                    $('#force').click();
+                }
+
                 // Go home after the beasts attack
                 if ($('#end').length > 0) {
                     $('#end').click();
+                }
+
+                // Go back inside
+                if ($('#backinside').length > 0) {
+                    $('#backinside').click();
                 }
             }
         },
