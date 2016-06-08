@@ -6,19 +6,19 @@
 // @match           https://iptorrents.com/t*
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.2.0
+// @version         1.3.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
-// ==/UserScript==  
+// ==/UserScript==
 
 /* jshint -W097 */
 'use strict';
 
-var maxTorrentSize = 50 * Math.pow(2,30); // 50 GB
-var minNumSeeders = 5;
+var minNumSeeders = 1;
 var minSeedToLeechRatio = 0.40;
 
+var $ = window.$;
 var torrents = $('table.torrents tr');
 for (var i=0; i < torrents.length; i++) {
     var torrent = torrents[i];
@@ -29,15 +29,9 @@ for (var i=0; i < torrents.length; i++) {
         var numSeeders = parseInt($(torrent).find('.t_seeders').text());
         var numLeechers = parseInt($(torrent).find('.t_leechers').text());
         var seedToLeechRatio = numLeechers / numSeeders;
-        var torrentSize = $(torrent).find('td:nth-child(6)').text();
-        if (torrentSize.match(/GB/)) {
-            torrentSize = parseFloat(torrentSize) * Math.pow(2, 30);
-        } else if (torrentSize.match(/MB/)) {
-            torrentSize = parseFloat(torrentSize) * Math.pow(2, 20);
-        }
-        
-        if (numSeeders > minNumSeeders && seedToLeechRatio > minSeedToLeechRatio && torrentSize <= maxTorrentSize) {
+
+        if (numSeeders >= minNumSeeders && seedToLeechRatio >= minSeedToLeechRatio) {
             $(torrent).attr('style', 'background-color: #1F351F');
         }
-    }                                                          
+    }
 }
