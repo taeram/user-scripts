@@ -6,7 +6,7 @@
 // @match           https://iptorrents.com/peers*;o=4
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.3.3
+// @version         1.3.4
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -14,6 +14,14 @@
 
 (function() {
     'use strict';
+
+    // Wait for jQuery to finish loading
+    var jQueryInterval = setInterval(function () {
+        if (typeof $ !== 'undefined') {
+            clearInterval(jQueryInterval);
+            main();
+        }
+    }, 100);
 
     var main = function () {
         var sortedRows = [];
@@ -155,6 +163,4 @@
             return populateArr;
         }
     };
-
-    setTimeout(main, 500);
 }());
