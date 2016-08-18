@@ -6,7 +6,7 @@
 // @match           https://iptorrents.com/t*
 // @grant           unsafeWindow
 // @copyright       Jesse Patching
-// @version         1.4.0
+// @version         1.4.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
@@ -17,7 +17,7 @@
 
     // Wait for jQuery to finish loading
     var jQueryInterval = setInterval(function () {
-        if (typeof unsafeWindow['$'] !== 'undefined') {
+        if (typeof $ !== 'undefined') {
             clearInterval(jQueryInterval);
             main();
         }
@@ -28,8 +28,8 @@
         var minSeedToLeechRatio = 0.30;
 
         var $ = unsafeWindow.$;
-        var torrents = $('table.torrents tr');
-        $('table.torrents tr:first').append('<td>Leecher %</td>');
+        var torrents = $('table#torrents tr');
+        $('table#torrents tr:first').append('<th class="ac" style="text-align: center">Leecher %</td>');
         for (var i=0; i < torrents.length; i++) {
             var torrent = torrents[i];
             var url = $(torrent).find('.t_title').attr('href');
@@ -39,7 +39,7 @@
                 var numSeeders = parseInt($(torrent).find('.t_seeders').text());
                 var numLeechers = parseInt($(torrent).find('.t_leechers').text());
                 var seedToLeechRatio = numLeechers / numSeeders;
-                $(torrent).append('<td>' + round(seedToLeechRatio * 100, 2) + '%</td>');
+                $(torrent).append('<td style="text-align: center">' + round(seedToLeechRatio * 100, 2) + '%</td>');
                 if (numSeeders >= minNumSeeders && seedToLeechRatio >= minSeedToLeechRatio) {
                     $(torrent).attr('style', 'background-color: #1F351F');
                 }
