@@ -2,11 +2,11 @@
 // @name            IPTorrents - Combine Upload Totals
 // @namespace       http://github.com/taeram/user-scripts
 // @description     Combine "Uploaded" totals on the Peers page
-// @match           https://www.iptorrents.com/peers*;o=4
-// @match           https://iptorrents.com/peers*;o=4
+// @match           https://www.iptorrents.com/peers*
+// @match           https://iptorrents.com/peers*
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.3.4
+// @version         1.4.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
@@ -24,6 +24,7 @@
     }, 100);
 
     var main = function () {
+        var sortRows = (window.location.search.match(/o=4/) !== null);
         var sortedRows = [];
         var rows = $('table.t1 tr');
         for (var i=1; i < rows.length; i++) {
@@ -37,7 +38,7 @@
             }
 
             // If this torrent has been seeded for >= 2 weeks, colour it's background green
-            if ($(rows[i]).find('td:nth-child(8)').text().match(/to go/) == null) {
+            if ($(rows[i]).find('td:nth-child(8)').text().match(/to go/) === null) {
                 $(rows[i]).attr('style', 'background-color: #1F351F');
             }
 
@@ -117,13 +118,15 @@
 
             $(uploadedEl).html(totalUploaded + ' ' + label + ' (' + parseFloat(mbPerDay).toFixed(0) + ' MB/day)');
         }
-        sortedRows = ksort(sortedRows);
 
-        // Add the rows back to the table sorted by upload totals, descending
-        for (var i in sortedRows) {
-            var html = $(sortedRows[i])[0].outerHTML;
-            sortedRows[i].remove();
-            $('table.t1 tr:nth-child(1)').after(html);
+        if (sortRows) {
+            sortedRows = ksort(sortedRows);
+            // Add the rows back to the table sorted by upload totals, descending
+            for (i in sortedRows) {
+                var html = $(sortedRows[i])[0].outerHTML;
+                sortedRows[i].remove();
+                $('table.t1 tr:nth-child(1)').after(html);
+            }
         }
 
         function ksort(inputArr) {
