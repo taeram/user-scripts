@@ -6,7 +6,7 @@
 // @match           https://iptorrents.com/t*
 // @grant           unsafeWindow
 // @copyright       Jesse Patching
-// @version         1.4.1
+// @version         1.5.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-seeding-selector.user.js
@@ -26,6 +26,7 @@
     function main () {
         var minNumSeeders = 1;
         var minSeedToLeechRatio = 0.30;
+        var maxAgeInSeconds = 86400;
 
         var $ = unsafeWindow.$;
         var torrents = $('table#torrents tr');
@@ -38,9 +39,33 @@
                 var title = $(torrent).find('.t_title').text();
                 var numSeeders = parseInt($(torrent).find('.t_seeders').text());
                 var numLeechers = parseInt($(torrent).find('.t_leechers').text());
-                var seedToLeechRatio = numLeechers / numSeeders;
+                var seedToLeechRatio = (numLeechers / numSeeders);
+                if (numSeeders === 0) {
+                    seedToLeechRatio = 100;
+                } else if (numLeechers === 0) {
+                    seedToLeechRatio = 0;
+                }
+
+                var age = $(torrent).find('.t_ctime').text().match(/([0-9]+\.*[0-9]*) (\w+) ago/);
+                var ageInSeconds = age[1];
+                if (age[2] == 'minutes') {
+                    ageInSeconds = age[1] * 60;
+                } else if (age[2] == 'hours') {
+                    ageInSeconds = age[1] * 3600;
+                } else if (age[2] == 'days') {
+                    ageInSeconds = age[1] * 86400;
+                } else if (age[2] == 'weeks') {
+                    ageInSeconds = age[1] * 86400 * 7;
+                } else if (age[2] == 'months') {
+                    ageInSeconds = age[1] * 86400 * 30;
+                } else if (age[2] == 'years') {
+                    ageInSeconds = age[1] * 86400 * 365;
+                } else {
+                    ageInSeconds = Number.MAX_SAFE_INTEGER;
+                }
+
                 $(torrent).append('<td style="text-align: center">' + round(seedToLeechRatio * 100, 2) + '%</td>');
-                if (numSeeders >= minNumSeeders && seedToLeechRatio >= minSeedToLeechRatio) {
+                if (numSeeders >= minNumSeeders && seedToLeechRatio >= minSeedToLeechRatio && ageInSeconds <= maxAgeInSeconds) {
                     $(torrent).attr('style', 'background-color: #1F351F');
                 }
             }
