@@ -4,9 +4,11 @@
 // @description     Combine "Uploaded" totals on the Peers page
 // @match           https://www.iptorrents.com/peers*
 // @match           https://iptorrents.com/peers*
+// @match           https://www.torrentday.com/peers*
+// @match           https://torrentday.com/peers*
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.4.0
+// @version         1.5.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/iptorrents-combine-upload-totals.user.js
