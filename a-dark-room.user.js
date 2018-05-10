@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.1.5
+// @version         2.1.6
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
@@ -62,6 +62,70 @@
             }
 
             return true;
+        },
+
+        balanceWorkers: function () {
+            var resourceLimits = {
+                bait: 100,
+                bullets: 500,
+                coal: 1000,
+                "cured meat": 100,
+                iron: 1000,
+                leather: 1000,
+                fur: 1000,
+                meat: 1000,
+                steel: 1000,
+                sulphur: 1000,
+                wood: 1000,
+            };
+
+            var productionPerInterval = {
+            };
+
+            var workers = {};
+            var rows = $('#workers .workerRow');
+            for (var i = 0; i < rows.length; i++) {
+                var name = $(rows[i]).attr('key');
+                var count = $(rows[i]).find('.row_val > span:first-child').text();
+                var resources = {};
+
+                var resourceRows = $(rows[i]).find('.tooltip .storeRow');
+                for (var j = 0; j < resourceRows.length; j++) {
+                    var key = $(resourceRows[j]).find('.row_key').text();
+                    var matches = $(resourceRows[j]).find('.row_val').text().match(/^(.+?) per (.+)s$/);
+                    var value = parseInt(matches[1], 10);
+                    var interval = parseInt(matches[2], 10);
+
+                    resources[key] = {
+                        value: value,
+                        interval: interval
+                    };
+
+                    if (typeof productionPerInterval[key] === 'undefined') {
+                        productionPerInterval[key] = value;
+                    } else {
+                        productionPerInterval[key] += value;
+                    }
+                }
+
+                workers[name] = {
+                    count: count,
+                    resources: resources
+                };
+            }
+
+            for (var name in workers) {
+                var resources = workers[name].resources;
+                for (var resource in resources) {
+                    if (resources[resource].value < 0) {
+                        continue;
+                    }
+
+                    if (ADR.resources[resource] > resourceLimits[resource]) {
+                        $('#workers_row_' + name + ' .dnManyBtn').click();
+                    }
+                }
+            }
         },
 
         buildThings: function () {
@@ -258,6 +322,10 @@
     // Build all the things
     ADR.intervals.buildThings = setInterval(ADR.buildThings, 30000);
     ADR.buildThings();
+
+    // Balance the workers
+    ADR.intervals.balanceWorkers = setInterval(ADR.balanceWorkers, 1000);
+    ADR.balanceWorkers();
 
     // Handle any incoming events
     ADR.intervals.handleEvent = setInterval(ADR.handleEvent, 1000);
