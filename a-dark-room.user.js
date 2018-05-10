@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.1.6
+// @version         2.1.7
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
@@ -16,6 +16,7 @@
     var ADR = {
         intervals: {},
         resources: {},
+        elements: {},
         weapons: {},
 
         stokeFire: function () {
@@ -66,10 +67,10 @@
 
         balanceWorkers: function () {
             var resourceLimits = {
-                bait: 100,
-                bullets: 500,
+                bait: 1000,
+                bullets: 1000,
                 coal: 1000,
-                "cured meat": 100,
+                "cured meat": 1000,
                 iron: 1000,
                 leather: 1000,
                 fur: 1000,
@@ -112,6 +113,14 @@
                     count: count,
                     resources: resources
                 };
+            }
+
+            if (typeof ADR.elements.production_per_interval === 'undefined') {
+                ADR.elements.production_per_interval = $('<div></div>').appendTo('#workers');
+            }
+            $(ADR.elements.production_per_interval).empty();
+            for (var key in productionPerInterval) {
+                $(ADR.elements.production_per_interval).append('<div class="row_val">' + productionPerInterval[key] + '</div><div>' + key + '</div>');
             }
 
             for (var name in workers) {
