@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.1.7
+// @version         2.1.8
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
@@ -121,19 +121,6 @@
             $(ADR.elements.production_per_interval).empty();
             for (var key in productionPerInterval) {
                 $(ADR.elements.production_per_interval).append('<div class="row_val">' + productionPerInterval[key] + '</div><div>' + key + '</div>');
-            }
-
-            for (var name in workers) {
-                var resources = workers[name].resources;
-                for (var resource in resources) {
-                    if (resources[resource].value < 0) {
-                        continue;
-                    }
-
-                    if (ADR.resources[resource] > resourceLimits[resource]) {
-                        $('#workers_row_' + name + ' .dnManyBtn').click();
-                    }
-                }
             }
         },
 
