@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.1.8
+// @version         2.2.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
@@ -296,6 +296,12 @@
                 // Go back inside
                 if ($('#backinside').length > 0) {
                     $('#backinside').click();
+                }
+
+                // Loot from an outpost and leave
+                if ($('.eventTitle').text() === 'An Outpost') {
+                    $('#loot_takeEverything').click();
+                    $('#leave').click();
                 }
             }
         },
