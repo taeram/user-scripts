@@ -1,29 +1,29 @@
 // ==UserScript==
-// @name        Mr. Script
-// @namespace   http://www.noblesse-oblige.org/lukifer/scripts/
-// @description	interface overhauler for KingdomofLoathing.com
-// @version		1.82
-// @license GPL (http://www.gnu.org/copyleft/gpl.html)
-// @author		Lukifer
-// @contributor	Ohayou
-// @contributor Hellion
-// @contributor	Tard
-// @contributor JiK4eva
-// @contributor BeingEaten
-// @contributor Picklish
-// @contributor	CharonTheHand
-// @include     https://*kingdomofloathing.com/*
-// @exclude     https://images.kingdomofloathing.com/*
-// @exclude     https://forums.kingdomofloathing.com/*
-// @require     https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
-// @grant	      GM_log
-// @grant	      GM_setValue
-// @grant	      GM_getValue
-// @grant	      GM_deleteValue
-// @grant	      GM_xmlhttpRequest
+// @name         Mr. Script
+// @namespace    http://www.noblesse-oblige.org/lukifer/scripts/
+// @description  Kingdom of Loathing - User Interface Overhaul
+// @version      1.81
+// @license      GPL (http://www.gnu.org/copyleft/gpl.html)
+// @author       Lukifer
+// @contributor  Ohayou
+// @contributor  Hellion
+// @contributor  Tard
+// @contributor  JiK4eva
+// @contributor  BeingEaten
+// @contributor  Picklish
+// @contributor  CharonTheHand
+// @include      https://*kingdomofloathing.com/*
+// @exclude      https://images.kingdomofloathing.com/*
+// @exclude      https://forums.kingdomofloathing.com/*
+// @require      https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+// @updateURL    https://raw.github.com/taeram/user-scripts/master/mr-script.user.js
+// @downloadURL  https://raw.github.com/taeram/user-scripts/master/mr-script.user.js
+// @grant        GM_log
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_deleteValue
+// @grant        GM_xmlhttpRequest
 // @unwrap
-// @updateURL       https://raw.github.com/taeram/user-scripts/master/mr-script.user.js
-// @downloadURL     https://raw.github.com/taeram/user-scripts/master/mr-script.user.js
 // ==/UserScript==
 
 var place = location.pathname.replace(/\/|\.(php|html)$/gi, "").toLowerCase();
@@ -457,56 +457,56 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
     case 344:
       min = 8;
       max = 12;
-      break; 	// Knob Goblin Seltzer
+      break;   // Knob Goblin Seltzer
     case 345:
       min = 25;
       max = 29;
-      break; 	// Knob Goblin Superseltzer
+      break;   // Knob Goblin Superseltzer
     case 347:
       min = 10;
       max = 14;
-      break;  	// Dyspepsi-Cola
+      break;    // Dyspepsi-Cola
     case 357:
       min = 6;
       max = 9;
-      break;  	// Mountain Stream Soda
+      break;    // Mountain Stream Soda
     case 465:
       min = 55;
       max = 79;
-      break;  	// Blue Pixel Potion
+      break;    // Blue Pixel Potion
     case 466:
       min = 31;
       max = 40;
-      break;  	// Green Pixel Potion
-    case 518: 				                // Magical Mystery Juice
+      break;    // Green Pixel Potion
+    case 518:                         // Magical Mystery Juice
       min = 4 + (1.5 * GetCharData("level"));
       max = min + 2;
       break;
     case 593:
       min = 46;
       max = 50;
-      break;  	// Phonics Down
+      break;    // Phonics Down
     case 592:
       min = 20;
       max = 24;
-      break;  	// Tiny House
+      break;    // Tiny House
     case 882:
       min = 20;
       max = 25;
-      break;  	// Blatantly Canadian
-    case 909:				                // Wint-o-Fresh mint
+      break;    // Blatantly Canadian
+    case 909:                        // Wint-o-Fresh mint
     case 1003:
       min = 3;
       max = 5;
-      break;  	// Soda Water
+      break;    // Soda Water
     case 1334:
       min = 10;
       max = 14;
-      break;  	// Cloaca-Cola
+      break;    // Cloaca-Cola
     case 1559:
       min = 30;
       max = 50;
-      break;  	// Tonic Water
+      break;    // Tonic Water
     case 1658:
     case 1659:
     case 1660:
@@ -516,11 +516,11 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
     case 1788:
       min = 50;
       max = 60;
-      break;  	// Unrefined Mountain Stream Syrup
+      break;    // Unrefined Mountain Stream Syrup
     case 1950:
       min = 100;
       max = 100;
-      break;	// Tussin
+      break;  // Tussin
     case 1965:
       min = 45;
       max = 64;
@@ -528,28 +528,28 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
     case 2616:
       min = 50;
       max = 60;
-      break;  	// Magi-Wipes
+      break;    // Magi-Wipes
     case 2600:
       min = 60;
       max = 70;
-      break;  	// Lily
+      break;    // Lily
     case 2576:
       min = 30;
       max = 39;
-      break;  	// Locust
-    case 2389:				                // Monstar
+      break;    // Locust
+    case 2389:                        // Monstar
     case 2367:
       min = 70;
       max = 80;
-      break;  	// Soy! Soy!
+      break;    // Soy! Soy!
     case 2639:
       min = 9;
       max = 11;
-      break;  	// Black Cherry
+      break;    // Black Cherry
     case 2035:
       min = 30;
       max = 40;
-      break;  	// Marquis de Poivre Soda
+      break;    // Marquis de Poivre Soda
     case 2370:
       min = 80;
       max = 120;
@@ -565,39 +565,39 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
     case 2606:
       min = 35;
       max = 45;
-      break;  	// palm-frond fan
+      break;    // palm-frond fan
     case 3357:
       min = 30;
       max = 40;
-      break;  	// delicious moth
+      break;    // delicious moth
     case 3450:
       min = 7;
       max = 15;
-      break;  	// cotton candy pinch
+      break;    // cotton candy pinch
     case 3451:
       min = 11;
       max = 23;
-      break;  	// cotton candy smidgen
+      break;    // cotton candy smidgen
     case 3452:
       min = 15;
       max = 30;
-      break;  	// cc skoche
+      break;    // cc skoche
     case 3453:
       min = 19;
       max = 38;
-      break;  	// cc plug
+      break;    // cc plug
     case 3454:
       min = 26;
       max = 52;
-      break;  	// cc cone
+      break;    // cc cone
     case 3455:
       min = 34;
       max = 68;
-      break;  	// cc pillow
+      break;    // cc pillow
     case 3456:
       min = 41;
       max = 82;
-      break;  	// cc bale
+      break;    // cc bale
     case 3697:
       min = 150;
       max = 200;
@@ -605,11 +605,11 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
     case 3727:
       min = 50;
       max = 70;
-      break;  	// Nardz
+      break;    // Nardz
     case 4192:
       min = 5;
       max = 10;
-      break;  	// sugar shard
+      break;    // sugar shard
 
     case 231:
       min = 3;
@@ -644,7 +644,7 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
 
     case 1450:
     case 1451:
-    case 1452: 		// Wads
+    case 1452:     // Wads
     case 1453:
     case 1454:
     case 1455:
@@ -656,7 +656,7 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
       }
       break;
     case 1154:
-    case 1261: 				// Air, Hatorade
+    case 1261:         // Air, Hatorade
       if (howMany > 3) {
         return 3;
       }
@@ -665,7 +665,7 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
       }
       break;
     case 226:
-    case 2096: 				// Minotaur, Bee Pollen
+    case 2096:         // Minotaur, Bee Pollen
       if (howMany > 5) {
         return 5;
       }
@@ -675,39 +675,39 @@ function FindMaxQuantity(item, howMany, deefault, safeLevel) {
       break;
     case 5302:
       return 1;
-      break;			//your own black heart
+      break;      //your own black heart
 
     case 4255:
       min = 200;
       max = 300;
-      break;	//Wolfman Nardz
+      break;  //Wolfman Nardz
     case 4819:
       min = 80;
       max = 100;
-      break;	//CRIMBCOLA
+      break;  //CRIMBCOLA
     case 4879:
       min = 40;
       max = 40;
-      break;	//bacon bath ball
+      break;  //bacon bath ball
     case 6037:
       min = 35;
       max = 45;
-      break; 	// creepy ginger ale
+      break;   // creepy ginger ale
     case 4670:
       min = 15;
       max = 20;
-      break;	// beer-scented teddy bear
+      break;  // beer-scented teddy bear
     case 3983:
       min = 10;
       max = 20;
-      break;	// dueling turtle
+      break;  // dueling turtle
     case 5019:
     case 5020:
-    case 5021: 	// natto, tobiko, wasabi marble soda
+    case 5021:   // natto, tobiko, wasabi marble soda
       min = 5;
       max = 10;
       break;
-    case 5292:				// d6
+    case 5292:        // d6
       min = 2.5 * GetCharData("level");
       max = min * 1.1;
       min = min * 0.9;
@@ -872,17 +872,17 @@ function AppendBuyBox(itemNumber, whichStore, buttonText, noQuantityBox) {
 // or "itemquantity" field available.
 /*
 function NumberLink(b) {
-	var num = b.textContent.split(' ')[0];
-	while(num.indexOf(',') != -1) num = num.split(',')[0] + num.split(',')[1];
-	num = integer(num);
-	if (num < 26) {
-		var txt = b.textContent.substring(
-			b.textContent.indexOf(' '),b.textContent.length);
-		var func = "var q = document.getElementsByName(\"quantity\");" +
-			"if(q.length==0) q = document.getElementsByName(\"itemquantity\");"+
-			"if(q.length) q[0].value=" + num + "; return false;";
-		b.innerHTML = "<a href='javascript:void(0);' onclick='" + func + "'>" + num + "</a>" + txt;
-	}
+  var num = b.textContent.split(' ')[0];
+  while(num.indexOf(',') != -1) num = num.split(',')[0] + num.split(',')[1];
+  num = integer(num);
+  if (num < 26) {
+    var txt = b.textContent.substring(
+      b.textContent.indexOf(' '),b.textContent.length);
+    var func = "var q = document.getElementsByName(\"quantity\");" +
+      "if(q.length==0) q = document.getElementsByName(\"itemquantity\");"+
+      "if(q.length) q[0].value=" + num + "; return false;";
+    b.innerHTML = "<a href='javascript:void(0);' onclick='" + func + "'>" + num + "</a>" + txt;
+  }
 }
 */
 
@@ -960,7 +960,7 @@ function AddInvCheck(img) {
   if (img != undefined && img.getAttribute("onclick").indexOf("desc") != -1) {
     if ($(img).parents("table.item").size() > 0) {
       return;
-    }	// this image already has an RCM attached; don't override.
+    }  // this image already has an RCM attached; don't override.
     // (thank you, CDMoyer, for this idea!)
     img.addEventListener('contextmenu', InvChecker, true);
   }
@@ -1080,7 +1080,7 @@ function AddLinks(descId, theItem, formWhere, path) {
     case 2639:
     case 1658:
     case 1659:
-    case 1660:		// MP restorers.  link to skillcasting.
+    case 1660:    // MP restorers.  link to skillcasting.
       doWhat = 'skill';
       break;
 
@@ -1089,7 +1089,7 @@ function AddLinks(descId, theItem, formWhere, path) {
     case   16:
     case  196:
     case  340:
-    case  341:		// spleen items.
+    case  341:    // spleen items.
     case  343:
     case  687:
     case  744:
@@ -1110,7 +1110,7 @@ function AddLinks(descId, theItem, formWhere, path) {
     case   22:
     case   33:
     case   59:
-    case   71:		// various gear... RCM should make this obsolete.
+    case   71:    // various gear... RCM should make this obsolete.
     case 1465:
     case 1466:
     case 1467:
@@ -1140,7 +1140,7 @@ function AddLinks(descId, theItem, formWhere, path) {
 
     case  486:
     case 458:
-    case 1916:											// talisman o' nam, spookyraven's specs.
+    case 1916:                      // talisman o' nam, spookyraven's specs.
       doWhat = 'equipacc';
       break;
 
@@ -1148,7 +1148,7 @@ function AddLinks(descId, theItem, formWhere, path) {
     case  438:
     case  440:
     case  678:
-    case  829:					// various items and campground gear... RCM again?
+    case  829:          // various items and campground gear... RCM again?
     case 1274:
     case 1622:
     case 1650:
@@ -1165,11 +1165,11 @@ function AddLinks(descId, theItem, formWhere, path) {
     case 2964:
     case 2965:
     case 3353:
-    case 3808:																//mer-kin trailmap
+    case 3808:                                //mer-kin trailmap
       doWhat = 'oneuse';
       break;
 
-    case  146:																// dinghy plans
+    case  146:                                // dinghy plans
       SetCharData("insults", "0;0;0;0;0;0;0;0");
       doWhat = 'oneuse';
       break;
@@ -1179,17 +1179,17 @@ function AddLinks(descId, theItem, formWhere, path) {
     case 1446:
     case 1447:
     case 1448:
-    case 1449:		// pepper and nuggets.
+    case 1449:    // pepper and nuggets.
       doWhat = 'cook';
       break;
 
-    case 247:																// fermenting powder.
+    case 247:                                // fermenting powder.
       doWhat = 'cocktail';
       break;
 
     case   74:
     case   75:
-    case   76:										// spooky temple stuff
+    case   76:                    // spooky temple stuff
       itemNum = 74;
       doWhat = 'oneuse';
       break;
@@ -1199,10 +1199,10 @@ function AddLinks(descId, theItem, formWhere, path) {
     case  313:
     case 1244:
     case 1245:
-    case 675:		// larva, boss bat bandana, KGKing items, dagon skull,
+    case 675:    // larva, boss bat bandana, KGKing items, dagon skull,
     case 2334:
     case  2766:
-    case  2829:										// MacGuffin, solid gold bowling ball, really dense meat
+    case  2829:                    // MacGuffin, solid gold bowling ball, really dense meat
                                    // stack
       addWhere.append(AppendLink('[council]', 'council.php', false));
       break;
@@ -1212,21 +1212,21 @@ function AddLinks(descId, theItem, formWhere, path) {
     case   54:
     case   57:
     case   60:
-    case   68: 		// EWs
+    case   68:     // EWs
     case 2556:
     case 2557:
     case 2558:
     case 2559:
     case 2560:
-    case 2561: 		// LEWs
+    case 2561:     // LEWs
     case  150:
     case  151:
     case  152:
     case  153:
     case  154:
-    case  155:		// Epic Hats
+    case  155:    // Epic Hats
     case 4504:
-    case 3291:													// heart of volcano, secret tropical map
+    case 3291:                          // heart of volcano, secret tropical map
       addWhere.append(AppendLink('[take to guild]', 'guild.php?place=scg'));
       break;
     case 2550:
@@ -1234,14 +1234,14 @@ function AddLinks(descId, theItem, formWhere, path) {
     case 2552:
     case 2553:
     case 2554:
-    case 2555:		// LEW parts
+    case 2555:    // LEW parts
       addWhere.append(AppendLink('[smith]', 'craft.php?mode=smith'));
       break;
-    case 454: 																// rusty screwdriver
+    case 454:                                 // rusty screwdriver
       addWhere.append(AppendLink('[untinker]', to_place('forestvillage&action=fv_untinker')));
       break;
 
-    case 134: 																// bitchin' meatcar
+    case 134:                                 // bitchin' meatcar
       addWhere.append(AppendLink('[guild]', 'guild.php?place=paco'));
       break;
 
@@ -1249,15 +1249,15 @@ function AddLinks(descId, theItem, formWhere, path) {
     case  460:
     case  461:
     case  462:
-    case  463:					// pixels
+    case  463:          // pixels
       addWhere.append(AppendLink('[mystic]', to_place('forestvillage&action=fv_mystic')));
       break;
 
-    case  535: 																// bridge
+    case  535:                                 // bridge
       addWhere.append(AppendLink('[chasm]', to_place('orc_chasm&action=bridge0')));
       break;
 
-    case  602: 																// Degrassi Knoll shopping list
+    case  602:                                 // Degrassi Knoll shopping list
       if (GetCharData("friendlyknoll") == true) {
         addWhere.append(AppendLink('[gnoll store]', "store.php?whichstore=4"));
       }
@@ -1271,7 +1271,7 @@ function AddLinks(descId, theItem, formWhere, path) {
       break;
 
     case  727:
-    case 728: 													// Hedge maze puzzle piece/key
+    case 728:                           // Hedge maze puzzle piece/key
       addWhere.append(AppendLink('[maze]', 'hedgepuzzle.php', false));
       break;
 
@@ -1280,39 +1280,39 @@ function AddLinks(descId, theItem, formWhere, path) {
       addWhere.append(AppendLink('[ballroom (1)]', snarfblat(109)));
       break;
 
-    case 2267: 																// Mega Gem
+    case 2267:                                 // Mega Gem
       addWhere.append(AppendLink('[equip as acc2]', equip({i: 2267, s: 2})));
       break;
 
-//		case 2052: 																// Blackbird
-//			addWhere.append(AppendLink('[use map]',inv_use(2054))); break;
+//    case 2052:                                 // Blackbird
+//      addWhere.append(AppendLink('[use map]',inv_use(2054))); break;
 
     case 2050:
-    case 2051:													// bird parts
+    case 2051:                          // bird parts
       addWhere.append(AppendLink('[bird]', 'craft.php?mode=combine' +
           '&action=craft&a=2050&b=2051&pwd=' + pwd +
           '&quantity=1'));
       break;
 
     case 2182:
-    case 2183: 													// Harold's hammer parts
+    case 2183:                           // Harold's hammer parts
       addWhere.append(AppendLink('[make hammer]', 'craft.php?mode=combine' +
           '&action=craft&a=2182&b=2183&pwd=' + pwd +
           '&quantity=1'));
       break;
-    case 2184: 																// harold's hammer
+    case 2184:                                 // harold's hammer
       addWhere.append(AppendLink('[give to Harold (1)]', snarfblat(112)));
       break;
 
-    case 1549: 																// MSG
+    case 1549:                                 // MSG
       addWhere.append(AppendLink('[bam!]', 'guild.php?place=wok'));
       break;
 
-    case 2441: 																// KG encryption key
+    case 2441:                                 // KG encryption key
       addWhere.append(AppendLink('[use map]', inv_use(2442)));
       break;
 
-    case 2277: 																// Fernswarthy's key
+    case 2277:                                 // Fernswarthy's key
       if (place == 'adventure') {
         addWhere.append(AppendLink('[visit guild]', 'guild.php?place=ocg'));
       }
@@ -1321,24 +1321,24 @@ function AddLinks(descId, theItem, formWhere, path) {
       }
       break;
 
-    case 2279: 																// Dusty Old Book
+    case 2279:                                 // Dusty Old Book
       addWhere.append(AppendLink('[take back to guild]', 'guild.php?place=ocg'));
       break;
 
-    case 2326:																// stone rose
+    case 2326:                                // stone rose
       addWhere.append(AppendLink('[Gnasir]', to_place('desertbeach&action=db_gnasir')));
       break;
 
-    case 3000: 																// Caronch's dentures
+    case 3000:                                 // Caronch's dentures
       addWhere.append(AppendLink("[equip swashbuckling pants]", equip({i: 402})));
       break;
 
-    case 4668: 																// observational glasses
+    case 4668:                                 // observational glasses
       addWhere.append(AppendLink("[visit Mourn]", "pandamonium.php?action=mourn"));
       break;
 
-    case   23: 																// gum
-      if (weCameFrom('hermit') && path == "/store.php") {	// came to the store from the hermit?  use it automatically.
+    case   23:                                 // gum
+      if (weCameFrom('hermit') && path == "/store.php") {  // came to the store from the hermit?  use it automatically.
         if (itemQty > 3) {
           itemQty = 3;
         }
@@ -1350,7 +1350,7 @@ function AddLinks(descId, theItem, formWhere, path) {
       }
       break;
 
-    case   42: 																// hermit permit
+    case   42:                                 // hermit permit
     case   43:
     case  44:
     case  45:                                          // worthless thingies
@@ -1362,13 +1362,13 @@ function AddLinks(descId, theItem, formWhere, path) {
       }
       break;
 
-    case 1003: 																// soda water
+    case 1003:                                 // soda water
       addWhere
           .append(AppendLink('[mix]', 'craft.php?mode=cocktail'))
           .append(AppendLink('[still]', 'guild.php?place=still'));
       break;
 
-    case   40: 																// casino pass
+    case   40:                                 // casino pass
       if (weCameFrom('casino') && path == "/store.php") {
         mainpane_goto('/casino.php');
       }
@@ -1377,8 +1377,8 @@ function AddLinks(descId, theItem, formWhere, path) {
       }
       break;
 
-    case  236: 																// cocktailcrafting kit
-      if (weCameFrom('craft') && path == "/store.php") {		// bought via Mr. Script button? auto-use.
+    case  236:                                 // cocktailcrafting kit
+      if (weCameFrom('craft') && path == "/store.php") {    // bought via Mr. Script button? auto-use.
         mainpane_goto(inv_use(236) + '&bounce=craft.php?a=1');
       }
       else {
@@ -1386,8 +1386,8 @@ function AddLinks(descId, theItem, formWhere, path) {
       }
       break;
 
-    case  157: 																// E-Z cook oven
-      if (weCameFrom('craft') && path == "/store.php") {		// bought via Mr. Script button?  auto-use.
+    case  157:                                 // E-Z cook oven
+      if (weCameFrom('craft') && path == "/store.php") {    // bought via Mr. Script button?  auto-use.
         mainpane_goto(inv_use(157) + '&bounce=craft.php?a=1');
       }
       else {
@@ -1395,51 +1395,51 @@ function AddLinks(descId, theItem, formWhere, path) {
       }
       break;
 
-    case  530: 																// spray paint
+    case  530:                                 // spray paint
       addWhere.append(AppendLink('[the wall]', 'town_grafwall.php'));
       break;
 
-    case   24: 																// Clover
+    case   24:                                 // Clover
       addWhere.append(AppendLink('[disassemble]', 'multiuse.php?pwd=' + pwd +
           '&action=useitem&quantity=1&whichitem=24'));
       break;
 
-    case  140: 																// dingy Planks
+    case  140:                                 // dingy Planks
       addWhere.append(AppendLink('[boat]', inv_use(146)));
       break;
 
-    case   47: 																// Roll
+    case   47:                                 // Roll
       addWhere
           .append(AppendLink('[casino]', 'casino.php'))
           .append(AppendLink('[rock+roll]', 'craft.php?mode=smith&' +
               'action=craft&a=47&b=30&pwd=' + pwd + '&quantity=1'));
       break;
 
-    case   52: 																// banjo Strings
+    case   52:                                 // banjo Strings
       addWhere.append(AppendLink('[twang]', 'craft.php?mode=smith&' +
           'action=craft&a=52&b=30&pwd=' + pwd +
           '&quantity=1'));
       break;
 
     case  135:
-    case  136: 													// Rims, Tires
+    case  136:                           // Rims, Tires
       addWhere.append(AppendLink('[wheels]', 'craft.php?mode=combine&' +
           'action=craft&a=135&b=136&pwd=' + pwd +
           '&quantity=1'));
       break;
 
-    case 2044: 																// MacGuffin
+    case 2044:                                 // MacGuffin
       addWhere.append(AppendLink('[read]', "diary.php?textversion=1"));
       break;
 
-    case  485: 																// snakehead charrrm: make talisman
+    case  485:                                 // snakehead charrrm: make talisman
       doWhat = 'oneuse';
-//			addWhere.append(AppendLink('[man, o nam]', 'craft.php?mode=combine&' +
-//							'action=craft&a=485&b=485&pwd='+ pwd +
-//							'&quantity=1'));
+//      addWhere.append(AppendLink('[man, o nam]', 'craft.php?mode=combine&' +
+//              'action=craft&a=485&b=485&pwd='+ pwd +
+//              '&quantity=1'));
       break;
 
-    case 2338: 																// Black Pudding
+    case 2338:                                 // Black Pudding
       addWhere.append(AppendLink('[eat]', 'inv_eat.php?pwd=' + pwd +
           '&which=1&whichitem=' + itemNum));
       break;
@@ -1450,13 +1450,13 @@ function AddLinks(descId, theItem, formWhere, path) {
       addWhere.append(AppendLink('[switch to blackbird]', 'familiar.php?action=newfam&newfam=59'));
       break;
 
-    case 2064: 																// Forged documents
+    case 2064:                                 // Forged documents
       addWhere.append(AppendLink('[shore]', to_place('desertbeach')));
       break;
-    case 2266:							                                    // wet stunt nut stew
+    case 2266:                                                  // wet stunt nut stew
       addWhere.append(AppendLink('[visit Mr. Alarm]', to_place('palindome&action=pal_mroffice')));
       break;
-    case 2347:	                                                            //heart
+    case 2347:                                                              //heart
                                                                             // of
                                                                             // the
                                                                             // filthworm
@@ -1468,24 +1468,24 @@ function AddLinks(descId, theItem, formWhere, path) {
                                                                             // boot
       addWhere.append(AppendLink('[old man, see?]', 'oldman.php'));
       break;
-    case 4621: 																// Game Grid Token
+    case 4621:                                 // Game Grid Token
       addWhere.append(AppendLink('[arcade]', 'arcade.php'));
       break;
 
     case 450:
     case 451:
-    case 1258:										// Pretentious artist's stuff
+    case 1258:                    // Pretentious artist's stuff
       addWhere.append(AppendLink('[artiste]', to_place('town_wrong&action=townwrong_artist_quest')));
       break;
 
     case 4961:
     case 4948:
     case 4949:
-    case 4950:							// subject 37 file, GOTO, weremoose spit, abominable blubber
+    case 4950:              // subject 37 file, GOTO, weremoose spit, abominable blubber
       addWhere.append(AppendLink('[visit 37]', 'cobbsknob.php?level=3&action=cell37'));
       break;
     case 5193:
-    case 5194:													// 11-inch knob sausage, exorcised sandwich
+    case 5194:                          // 11-inch knob sausage, exorcised sandwich
       addWhere.append(AppendLink('[back to the guild]', 'guild.php?place=challenge'));
       break;
     case 5221:                                                              // fat
@@ -1494,7 +1494,7 @@ function AddLinks(descId, theItem, formWhere, path) {
       addWhere.append(AppendLink('[spend it!]', 'shop.php?whichshop=damachine', false));
       break;
     case 1764:
-    case 7302:												    // spookyraven library key
+    case 7302:                            // spookyraven library key
       addWhere.append(AppendLink('[library (1)]', snarfblat(390)));
       break;
     case 5570:                                                              // ninja
@@ -1546,7 +1546,7 @@ function AddLinks(descId, theItem, formWhere, path) {
       doWhat = "oneuse";
       //addWhere.append(AppendLink('[The Dr is
       // In!]',to_place('palindome&action=pal_droffice'))); break;
-    case 4029:		                                                        // Hyboria:
+    case 4029:                                                            // Hyboria:
                                                                           // memory
                                                                           // of
                                                                           // a
@@ -1559,19 +1559,19 @@ function AddLinks(descId, theItem, formWhere, path) {
         SetCharData("Krakrox", "F");
       }
       break;
-    case 4032:		// Hyboria: memory of half a stone circle
+    case 4032:    // Hyboria: memory of half a stone circle
       SetCharData("Krakrox", "D");
       break;
-    case 4034:		// Hyboria: memory of an iron key
+    case 4034:    // Hyboria: memory of an iron key
       SetCharData("Krakrox", "G");
       break;
-    case 4030:		// Hyboria: memory of a small stone block
+    case 4030:    // Hyboria: memory of a small stone block
       SetCharData("Krakrox", "I");
       break;
-    case 4031:		// Hyboria: memory of a little stone block
+    case 4031:    // Hyboria: memory of a little stone block
       SetCharData("Krakrox", "K");
       break;
-    case 4033:		// Hyboria: memoryof a stone half-circle
+    case 4033:    // Hyboria: memoryof a stone half-circle
       SetCharData("Krakrox", "M");
       break;
 
@@ -1592,7 +1592,7 @@ function AddLinks(descId, theItem, formWhere, path) {
 
     case "use":
       if (formWhere != null) {
-        //	AppendUseBox(itemNum, 0, 0, formWhere.get(0));	//need to replace
+        //  AppendUseBox(itemNum, 0, 0, formWhere.get(0));  //need to replace
         // this function....
       }
       else {
@@ -1603,7 +1603,7 @@ function AddLinks(descId, theItem, formWhere, path) {
 
     case "skill":
       if (formWhere != null) {
-        //	AppendUseBox(itemNum, 1, 1, formWhere.get(0));
+        //  AppendUseBox(itemNum, 1, 1, formWhere.get(0));
       }
       else {
         addWhere.append(AppendLink('[use]', 'inv_use.php?pwd=' + pwd +
@@ -1784,43 +1784,43 @@ function SkillUseLimit(skillNum) {
     case 8001:
     case 8002:
       limit = 3;
-      break;	// 3 Tomes maximum.
+      break;  // 3 Tomes maximum.
     case 3012:
       limit = 1;
-      break;						// Cannelloni Cocoon
+      break;            // Cannelloni Cocoon
     case 8200:
     case 8201:
       limit = 1;
-      break;				// Grimoires
+      break;        // Grimoires
     case 45:
     case 53:
       limit = 1;
-      break;				// vent rage gland, summon crimbo candy
+      break;        // vent rage gland, summon crimbo candy
     case 3006:
     case 4006:
     case 5014:
       limit = 5;
-      break;	// summon noodles, reagents, garnishes
+      break;  // summon noodles, reagents, garnishes
     case 3009:
       min = 10;
       max = 30;
-      break;					// lasagna bandages
+      break;          // lasagna bandages
     case 1007:
       min = 10;
       max = 20;
-      break;					// tongue of the otter
+      break;          // tongue of the otter
     case 1010:
       min = 30;
       max = 40;
-      break;					// tongue of the walrus
+      break;          // tongue of the walrus
     case 5011:
       min = 40;
       max = 40;
-      break;					// disco power nap
+      break;          // disco power nap
     case 5007:
       min = 20;
       max = 20;
-      break;					// disco nap
+      break;          // disco nap
     case 6020:
     case 6021:
     case 6022:
@@ -1828,13 +1828,13 @@ function SkillUseLimit(skillNum) {
     case 6024:
     case 6025:
       limit = 10;
-      break;	// AT Hobo skills
+      break;  // AT Hobo skills
     case 6026:
       limit = 50;
-      break;						// AT Sea skill
+      break;            // AT Sea skill
     case 6028:
       limit = 5;
-      break;						// AT Trader skill (Inigo's)
+      break;            // AT Trader skill (Inigo's)
   }
   if (max != 0) {
     var hp = GetCharData("maxHP") - GetCharData("currentHP");
@@ -2047,7 +2047,7 @@ function MakeOption(text, num, pref, opt1, opt2) {
       else {
         SetPref(this.name, this.value);
       }
-      switch (this.name)	// changing a setting affecting topmenu?  reload it now.
+      switch (this.name)  // changing a setting affecting topmenu?  reload it now.
       {
         case 'shortlinks':
         case 'splitinv':
@@ -2271,13 +2271,13 @@ function InlineItemDescriptions() {
 function at_main() {
   FindHash();
   setTimeout("if (top.frames[0].location == 'about:blank')" +
-      " top.frames[0].location = 'topmenu.php'", 1500);	// fix for top menu not
+      " top.frames[0].location = 'topmenu.php'", 1500);  // fix for top menu not
                                                          // always loading
                                                          // properly
 
   // n.b. the :eq(1) below is important because of the nested-table layout.
   // only select the inner TR.
-  $('tr:contains("Noob."):eq(1)').append(AppendLink('[Toot]', 'tutorial.php?action=toot'));	// fresh from valhalla?  get things rolling.
+  $('tr:contains("Noob."):eq(1)').append(AppendLink('[Toot]', 'tutorial.php?action=toot'));  // fresh from valhalla?  get things rolling.
   $('tr:contains("responded to a trade offer"):eq(1)').append(AppendLink('[trade]', 'makeoffer.php'));
   $('tr:contains("new announcement"):eq(1)').append(AppendLink('[go read it]', 'clan_hall.php'));
 
@@ -2304,18 +2304,18 @@ function at_game() {
   if ((currentHours - lastUpdated) > 6) {
     GM_get("noblesse-oblige.org/hellion/scripts/MrScript.version.json",
         function (txt) {
-          txt = txt.replace(/\n/, '');		// strip carriage returns so that
+          txt = txt.replace(/\n/, '');    // strip carriage returns so that
                                           // eval() doesn't blow up
           var json = $.parseJSON(txt);
           if (!json.version) {
             return;
           }
-          var vnum = json.version.replace(/\./g, "");	// strip points: 1.4.3 =>
+          var vnum = json.version.replace(/\./g, "");  // strip points: 1.4.3 =>
                                                        // 143.
           if (!vnum) {
             return;
           }
-          if (integer(vnum) <= VERSION)		// number returned via lookup is not newer than
+          if (integer(vnum) <= VERSION)    // number returned via lookup is not newer than
                                            // what this script says it is...
           {
             persist('MrScriptLastUpdate',
@@ -2375,7 +2375,7 @@ function at_fight() {
     "a collapsed mineshaft golem": ["stick of dynamite", "", 1, 0],
     "a concert pianist": ["Knob Goblin firecracker", "", 1, 0],
     "the darkness": ["inkwell", "", 1, 0],
-    " El Diablo": ["mariachi G-string", "", 1, 0],		// note: leading space is
+    " El Diablo": ["mariachi G-string", "", 1, 0],    // note: leading space is
                                                       // very important.  do not
                                                       // remove it.
     "an Electron Submarine": ["photoprotoneutron torpedo", "", 1, 0],
@@ -2449,20 +2449,20 @@ function at_fight() {
   });
 
 // PART 1: FIRST-ROUND STUFF
-  if (infight != "Y") {	// first time through this particular fight?
+  if (infight != "Y") {  // first time through this particular fight?
     SetCharData("infight", "Y");
-    SetCharData("special", 0);	// defensive clearing in case it got left set
+    SetCharData("special", 0);  // defensive clearing in case it got left set
                                 // somehow.
     var monsterItem = MonsterArray[monsterName];
     if (monsterItem != undefined && GetPref('lairspoil') != 1 && monsterItem[2] == 1) {
       return;
-    }	// found something, spoilers are off, and this is a spoilery monster?
-    if (monsterItem != undefined) {	// let's do something specific with this critter.
+    }  // found something, spoilers are off, and this is a spoilery monster?
+    if (monsterItem != undefined) {  // let's do something specific with this critter.
       var dropdown = document.getElementsByName('whichitem');
       if (dropdown.length) {
         setItem(dropdown[0], monsterItem[0]);
       }
-      if (monsterItem[1] != "") {	// is there a funkslinging preference given?
+      if (monsterItem[1] != "") {  // is there a funkslinging preference given?
         dropdown = document.getElementsByName('whichitem2');
         if (dropdown.length) {
           setItem(dropdown[0], monsterItem[1]);
@@ -2474,9 +2474,9 @@ function at_fight() {
     }
   }
 // PART 2: SPECIAL-PROCESS STUFF
-  if (GetCharData("special") != 0) {	// in a fight with something special?
+  if (GetCharData("special") != 0) {  // in a fight with something special?
     switch (GetCharData("special")) {
-      case 1:	// gremlins
+      case 1:  // gremlins
         ProcessGremlinCombat(monsterName);
         break;
 
@@ -2593,17 +2593,17 @@ function at_fight() {
 }
 
 function CheckLocation(square) {
-  if (square.indexOf("cellar.php") != -1) {	// add "explore L/R/U/D" links
+  if (square.indexOf("cellar.php") != -1) {  // add "explore L/R/U/D" links
     link_cellar(square);
   }
-  else {	// handling adventure.php?snarfblat=X options.
-    var location = integer(square.match(/(\d+)/)[1]);	// the 185 in
+  else {  // handling adventure.php?snarfblat=X options.
+    var location = integer(square.match(/(\d+)/)[1]);  // the 185 in
                                                        // "adventure.php?snarfblat=185"
     switch (location) {
       case 182:
       case 183:
       case 184:
-      case 185:	// Junkyard: add onclick to "adventure again" link to tell ourselves
+      case 185:  // Junkyard: add onclick to "adventure again" link to tell ourselves
                  // where we are.
         $('a:contains("dventure")').click(function () {
           var a = $(this);
@@ -2615,7 +2615,7 @@ function CheckLocation(square) {
 }
 
 function ProcessGremlinCombat(monsterName) {
-  //	array = 		monster name:		  zone	has-item						doesnt-have-item
+  //  array =     monster name:      zone  has-item            doesnt-have-item
   var gremlininfo = {
     "a batwinged gremlin": [182, "whips out a hammer", "a bombing run over"],
     "a spider gremlin": [183, "whips out a pair of pliers", "fibula with its mandibles"],
@@ -2624,7 +2624,7 @@ function ProcessGremlinCombat(monsterName) {
     "an A.M.C. gremlin": [186, "blah blah hruugh", "an A.M.C. gremlin"]
   };
 
-  var zonetext = GetCharData("square");	// should have something like
+  var zonetext = GetCharData("square");  // should have something like
                                          // "adventure.php?snarfblat=182"
   var zone = zonetext ? integer(zonetext.match(/(\d+)/)[1]) : 0;
 
@@ -2636,10 +2636,10 @@ function ProcessGremlinCombat(monsterName) {
     tr.innerHTML = '<tr><td><div style="color: red;font-size: 100%;width: 100%;text-align:center">' +
         '<b>SMACK THE LITTLE BUGGER DOWN!</b></div></td></tr>';
     AddToTopOfMain(tr, document);
-    SetCharData("special", 2);	// mark them as non-tool gremlins.
+    SetCharData("special", 2);  // mark them as non-tool gremlins.
   }
-  else {								// the monster might drop the item.
-    if (document.body.innerHTML.indexOf(gremlininfo[monsterName][1]) != -1) {	// and there it is!
+  else {                // the monster might drop the item.
+    if (document.body.innerHTML.indexOf(gremlininfo[monsterName][1]) != -1) {  // and there it is!
       var tr = document.createElement('tr');
       tr.innerHTML = '<tr><td><div style="color: green;font-size: 100%;width: 100%;text-align:center">' +
           '<b>MAGNET IT NOW!</b></div></td></tr>';
@@ -2648,7 +2648,7 @@ function ProcessGremlinCombat(monsterName) {
       var itemSelect = document.getElementsByName('whichitem');
       var funkSelect = document.getElementsByName('whichitem2');
 
-      if (funkSelect.length) {	// default funk action: flyers + magnet
+      if (funkSelect.length) {  // default funk action: flyers + magnet
         setItem(itemSelect[0], "band flyer");
         setItem(funkSelect[0], "molybdenum magnet");
         if (itemSelect[0].options[itemSelect[0].selectedIndex].text.indexOf("band flyers") == -1) { // no flyers? just magnet.
@@ -2673,7 +2673,7 @@ function ProcessNunMeatDrops() {
   //TODO: figure out how to find the right meatline between hobo monkey (shows
   // up before nun meat) and Sneaky Pete's bike (shows up after nun meat). use
   // 'first' below in an SP run, 'last' otherwise.
-  var meatline = $("img[src*='meat.gif']:first").parent().next().text();	// should
+  var meatline = $("img[src*='meat.gif']:first").parent().next().text();  // should
                                                                           // be
                                                                           // "You
                                                                           // gain
@@ -2710,7 +2710,7 @@ function ProcessWineCellarDrops() {
     "Zinfandel": 32
   };
   var imgs = document.getElementsByTagName('img');
-  if (imgs.length > 1) {		// image 0 is the monster pic.  anything else might be a drop.
+  if (imgs.length > 1) {    // image 0 is the monster pic.  anything else might be a drop.
     var dropcode = 0;
     for (var i = 1; i < imgs.length; i++) {
       var itemname = imgs[i].getAttribute('alt');
@@ -2784,10 +2784,10 @@ function link_cellar(square) {
       '<td id=br>&nbsp;</td></tr></table>');
 
   // grid: 1 hex digit per square for each of the 25 squares.
-  // 		8 = show UP link
-  //		4 =      DOWN
-  // 		2 =      LEFT
-  //      1 = 	 RIGHT
+  //     8 = show UP link
+  //    4 =      DOWN
+  //     2 =      LEFT
+  //      1 =    RIGHT
   // plus a 0 at the front because Jick uses 1-based indexing for the tavern,
   // the bastard.
   var grid = [0, 5, 7, 7, 6, 0, 13, 15, 15, 15, 6, 13, 15, 15, 15, 14, 13, 15, 15, 15, 14, 9, 11, 11, 11, 10];
@@ -2812,7 +2812,7 @@ function link_cellar(square) {
 
   //if we need to show a link for direction D from square S, return true.
   function check(s, d) {
-    if (grid[s] & d) {	//if possible to move in that direction from here
+    if (grid[s] & d) {  //if possible to move in that direction from here
       s = move(s, d);
       if (beenTo.indexOf(s + ";") == -1) { //and we haven't already visited that destination
         return true;
@@ -2909,20 +2909,20 @@ function at_valhalla() {
   // door code resets
   SetCharData("NSDoorCode", '');
   // might not go muscle sign this time
-//	SetCharData("plungeraccess",'');
+//  SetCharData("plungeraccess",'');
   // wipe the cellar wine info
-//	SetCharData("corner178",0);
-//	SetCharData("corner179",0);
-//	SetCharData("corner180",0);
-//	SetCharData("corner181",0);
-//	SetCharData("winelist",'');
-//	SetCharData("wineHTML",'');
-//	SetCharData("winesNeeded",'');
+//  SetCharData("corner178",0);
+//  SetCharData("corner179",0);
+//  SetCharData("corner180",0);
+//  SetCharData("corner181",0);
+//  SetCharData("winelist",'');
+//  SetCharData("wineHTML",'');
+//  SetCharData("winesNeeded",'');
   // clear the hidden city stone settings
-//	SetCharData("altar1",'');
-//	SetCharData("altar2",'');
-//	SetCharData("altar3",'');
-//	SetCharData("altar4",'');
+//  SetCharData("altar1",'');
+//  SetCharData("altar2",'');
+//  SetCharData("altar3",'');
+//  SetCharData("altar4",'');
   // reset pirate insult knowledge
   SetCharData("insults", '0;0;0;0;0;0;0;0');
   // clear last-rat info
@@ -3038,11 +3038,11 @@ function at_adventure() {
     if (square.indexOf("hiddencity") != -1) {
       link_hiddencity(square);
     }
-//		if (square.indexOf("cellar.php") != -1) link_cellar(square);
+//    if (square.indexOf("cellar.php") != -1) link_cellar(square);
   }
   var $NCTitle = $('b:eq(1)');
   var NCText = $NCTitle.text();
-//	console.log("NCTtext=["+$NCTitle.text()+"]");
+//  console.log("NCTtext=["+$NCTitle.text()+"]");
   switch (NCText) {
     case "Rotting Matilda":
       var cardlink = document.createElement('table');
@@ -3060,29 +3060,29 @@ function at_adventure() {
       $('<center><a href="adventure.php?snarfblat=100">Adventure Again (Whitey\'s Grove)</a></center><br />').prependTo($('a:last').parent());
       $('<center><a href="adventure.php?snarfblat=413">Adventure on the Road to White Citadel</a></center><br />').prependTo($('a:last').parent());
       break;
-//	case "F-F-Fantastic!":
-//		$('<center><a href="adventure.php?snarfblat=82">Adventure in the Castle
+//  case "F-F-Fantastic!":
+//    $('<center><a href="adventure.php?snarfblat=82">Adventure in the Castle
 // in the Clouds in the Sky</a></center><br
 // />').prependTo($('a:last').parent()); break;
     case "We'll All Be Flat":
       $('<center><a href="place.php?whichplace=manor4">Head to the Wine Cellar</a></center><br />').prependTo($('a:last').parent());
-//		SetCharData("corner178",0);
-//		SetCharData("corner179",0);
-//		SetCharData("corner180",0);
-//		SetCharData("corner181",0);
-//		SetCharData("winelist",'');
-//		SetCharData("wineHTML",'');
-//		SetCharData("winesNeeded",'');
-//		SetCharData("altar1",'');
-//		SetCharData("altar2",'');
-//		SetCharData("altar3",'');
-//		SetCharData("altar4",'');
+//    SetCharData("corner178",0);
+//    SetCharData("corner179",0);
+//    SetCharData("corner180",0);
+//    SetCharData("corner181",0);
+//    SetCharData("winelist",'');
+//    SetCharData("wineHTML",'');
+//    SetCharData("winesNeeded",'');
+//    SetCharData("altar1",'');
+//    SetCharData("altar2",'');
+//    SetCharData("altar3",'');
+//    SetCharData("altar4",'');
       break;
     case "Whee!":
       $('<center><a href="adventure.php?snarfblat=125">Adventure in the Middle Chamber</a></center><br />').prependTo($('a:last').parent());
       break;
     case "Polo Tombstone":
-      $('a[href="adventure.php?snarfblat=103"]').remove();		// don't need to
+      $('a[href="adventure.php?snarfblat=103"]').remove();    // don't need to
                                                               // adventure
                                                               // again
                                                               // once we have
@@ -3125,9 +3125,9 @@ function at_adventure() {
     case "Not So Much With The Humanity":
       $('<center><a href="' + snarfblat(385) + '">Adventure in the Red Zeppelin</a></center><br />').prependTo($('a:last').parent());
       break;
-    case "":	// got a "You shouldn't be here" or other reject message... (or an
+    case "":  // got a "You shouldn't be here" or other reject message... (or an
               // untitled Limerick Dungeon adventure, sigh)
-      if (document.location.search == "?snarfblat=100") {	// we were trying for Whitey's Grove; go get the quest from the guild.
+      if (document.location.search == "?snarfblat=100") {  // we were trying for Whitey's Grove; go get the quest from the guild.
         mainpane_goto("guild.php?place=paco");
       }
       else if (document.location.search == "?snarfblat=141") { // we were at the Pond (frozen dooks)
@@ -3177,48 +3177,48 @@ function at_guild() {
       }
       break;
     case "?place=ocg":
-      if (tdtext.indexOf("Misspelled Cemetary") != -1) {	// common opening phrase to find F's key.
+      if (tdtext.indexOf("Misspelled Cemetary") != -1) {  // common opening phrase to find F's key.
         $('p:last').append(AppendLink('[Misspelled Cemetary (1)]', snarfblat(21)));
       }
-      else if ((tdtext.indexOf("brought me Fernswarthy's key") != -1) || 	// mus inter for
+      else if ((tdtext.indexOf("brought me Fernswarthy's key") != -1) ||   // mus inter for
           // finding F's key
-          (tdtext.indexOf("brought the key to") != -1) ||					// mys inter
-          (tdtext.indexOf("haven't got Fern") != -1))						// mox inter
+          (tdtext.indexOf("brought the key to") != -1) ||          // mys inter
+          (tdtext.indexOf("haven't got Fern") != -1))            // mox inter
       {
         td.append(AppendLink('[Misspelled Cemetary (1)]', snarfblat(21)));
       }
-      else if ((tdtext.indexOf("searching the ruins") != -1) ||		// mus post-key/pre-dusty book
-          (tdtext.indexOf("a very busy man") != -1) ||				// mys
-          (tdtext.indexOf("searching the tower") != -1))				// mox
+      else if ((tdtext.indexOf("searching the ruins") != -1) ||    // mus post-key/pre-dusty book
+          (tdtext.indexOf("a very busy man") != -1) ||        // mys
+          (tdtext.indexOf("searching the tower") != -1))        // mox
       {
         td.append(AppendLink('[Tower Ruins (1)]', snarfblat(22)));
       }
       break;
     case "?place=scg":
-      if (tdtext.indexOf("the two oldest and wisest") != -1) 		// common opening
+      if (tdtext.indexOf("the two oldest and wisest") != -1)     // common opening
                                                                 // phrase, yay.
       {
         $('p:last').append(AppendLink('[hermit]', 'hermit.php')).append(AppendLink('[casino]', 'casino.php'));
       }
-      else if ((tdtext.indexOf("not completed your Epic") != -1) ||		// Mus interstitial
+      else if ((tdtext.indexOf("not completed your Epic") != -1) ||    // Mus interstitial
           (tdtext.indexOf("not yet completed your Epic") != -1) || // Mys
           // interstitial
-          (tdtext.indexOf("delay on that epic") != -1))			// Mox interstitial
+          (tdtext.indexOf("delay on that epic") != -1))      // Mox interstitial
       {
         td.append(AppendLink('[hermit]', 'hermit.php')).append(AppendLink('[casino]', 'casino.php'));
       }
-      else if (tdtext.indexOf("Beelzebozo") != -1) 						// EW->LEW assignment, all
+      else if (tdtext.indexOf("Beelzebozo") != -1)             // EW->LEW assignment, all
                                                               // classes.
       {
         $('p:last').append(AppendLink('[Fun House (1)]', snarfblat(20)));
       }
-      else if ((tdtext.indexOf("restore the Legendary") != -1) || 			// mus inter
-          (tdtext.indexOf("acquire the Legendary") != -1) || 			// mys inter
-          (tdtext.indexOf("with that Legendary") != -1))				// mox inter
+      else if ((tdtext.indexOf("restore the Legendary") != -1) ||       // mus inter
+          (tdtext.indexOf("acquire the Legendary") != -1) ||       // mys inter
+          (tdtext.indexOf("with that Legendary") != -1))        // mox inter
       {
         td.append(AppendLink('[Fun House (1)]', snarfblat(20)));
       }
-      else if (tdtext.indexOf("on your map") != -1) 				// Cave assignment, all classes
+      else if (tdtext.indexOf("on your map") != -1)         // Cave assignment, all classes
       {
         if ($('p').length) {
           $('p:last').append(AppendLink('[nemesis cave]', 'cave.php'));
@@ -3227,13 +3227,13 @@ function at_guild() {
           td.append(AppendLink('[nemesis cave]', 'cave.php'));
         }
       }
-      else if ((tdtext.indexOf("defeated your Nemesis yet") != -1) ||		// Mus inter
-          (tdtext.indexOf("need you to defeat") != -1) ||						// Mys inter
-          (tdtext.indexOf("beat your Nemesis yet, eh?") != -1))				// Mox inter
+      else if ((tdtext.indexOf("defeated your Nemesis yet") != -1) ||    // Mus inter
+          (tdtext.indexOf("need you to defeat") != -1) ||            // Mys inter
+          (tdtext.indexOf("beat your Nemesis yet, eh?") != -1))        // Mox inter
       {
         td.append(AppendLink('[nemesis cave]', 'cave.php'));
       }
-      else if (tdtext.indexOf("volcano lair or something") != -1) {	// all classes: start of assassin encounters
+      else if (tdtext.indexOf("volcano lair or something") != -1) {  // all classes: start of assassin encounters
         td.append('<p><font color="blue">(Come back after you get the Secret Tropical Volcano Lair map from a nemesis assassin.)</font>');
       }
       else if (tdtext.indexOf("I was hoping you could lend me one") != -1) { // all classes: island openable
@@ -3301,14 +3301,14 @@ function at_choice() {
     }
     if (square.indexOf("cellar.php") != -1) {
       if (NCText != "Results:") {
-        SetCharData("square", square);	// not "Results:" means it's the
+        SetCharData("square", square);  // not "Results:" means it's the
                                         // choosing half of the choice, where
                                         // you don't need links.
         // but it will be "Results:" after we choose something, so pass our
         // Square data onward.
       }
       else {
-        link_cellar(square);			// "Results:" means it's the result of the
+        link_cellar(square);      // "Results:" means it's the result of the
                                   // choice, where you need the links.
       }
     }
@@ -3336,19 +3336,19 @@ function at_choice() {
                                      // tag.  sigh.
   $('div[style*="green"] > p').addClass("greenP");
   var p = $("p").not(".greenP");
-//	var p=document.getElementsByTagName('p');
+//  var p=document.getElementsByTagName('p');
   if (p.length) {
     var p0 = p.get(0); //p[0];
     var p0text = p0.textContent;
-    if (p0text.indexOf("actually a book.") != -1) {	// The Oracle
+    if (p0text.indexOf("actually a book.") != -1) {  // The Oracle
       p0.appendChild(AppendLink('[go ahead, read it already]', inv_use(818)));
     }
-    else if (p0text.indexOf("a new pledge") != -1) {	// Orcish Frat House Blueprints adventure
+    else if (p0text.indexOf("a new pledge") != -1) {  // Orcish Frat House Blueprints adventure
       $('a [href="adventure.php?snarfblat=27"]')
           .attr('href', snarfblat(157))
           .text("Adventure in BARRRNEY'S BARRR");
     }
-    else if (p0text.indexOf("begin your journey at Whitey") != -1) {		//white castle quest
+    else if (p0text.indexOf("begin your journey at Whitey") != -1) {    //white castle quest
       $('a:last').parent()
           .prepend('<center><a href=' + snarfblat(100) +
               '>Adventure at Whitey\'s Grove</a></center><br />');
@@ -3361,7 +3361,7 @@ function at_choice() {
           .prepend('<center><a href=' + snarfblat(324) +
               '>Adventure Again (The Castle in the Clouds in the Sky (Top Floor))</a></center><br/>');
     }
-    else if (p0text.indexOf("You step up behind the man") != -1) {	// found Mr. Alarm
+    else if (p0text.indexOf("You step up behind the man") != -1) {  // found Mr. Alarm
       $('<center><a href="adventure.php?snarfblat=100">Adventure in WHITEY\'S GROVE</a></center><br />')
           .prependTo($('a:last').parent());
       // add a link to cooking here.
@@ -3418,7 +3418,7 @@ function at_choice() {
     else if (p0text.indexOf("You make your way up into") != -1) {
       $('<center><a href="' + to_place('hiddencity') + '">Visit Beautiful Downtown Hidden City</a></center><br />')
           .prependTo($('a:contains("Go back to")').parent());
-      //	p0.appendChild(AppendLink('[hidden city]',to_place('hiddencity')));
+      //  p0.appendChild(AppendLink('[hidden city]',to_place('hiddencity')));
     }
     else if (choicetext.indexOf("hacienda. You do find an") != -1) {
       var clueText = /You do find an (\.*?),/.match(choicetext)[1];
@@ -3525,21 +3525,21 @@ function at_bounty() {
     ["worthless pieces of yellow glass", "[dungeons of doom (1)]", "39"],
 
     /*
-		["chunks of hobo gristle",          "[Back Alley (1)]",     "112"],
-		["oily rags",                       "[Knoll (1)]",          "18"],
-		["empty aftershave bottles",        "[frat house (1)]",     "27"],
-		["greasy dreadlocks",               "[hippy camp (1)]",     "26"],
-		["vials of pirate sweat",           "[pirate's cove (1)]",  "66"],
-		["balls of white lint",             "[Whitey's Grove (1)]", "100"],
-		["worthless pieces of yellow glass","[Dungeons of Doom (1)]","39"],
-		["billy idols",                     "[Goatlet (1)]",        "271"],
-		["burned-out arcanodiodes",         "[Airship (1)]",        "81"],
-		["coal buttons",                    "[Ninja Snowmen (1)]",  "272"],
-		["discarded pacifiers",             "[Castle:Top (1)]",     "324"],
-		["disintegrating corks",            "[Wine Cellar (1)]",    "178"],
-		["non-Euclidean hooves",            "[Louvre (1)]",         "106"],
-		["sammich crusts",                  "[Roflmfao (1)]",       "80"],
-		*/
+    ["chunks of hobo gristle",          "[Back Alley (1)]",     "112"],
+    ["oily rags",                       "[Knoll (1)]",          "18"],
+    ["empty aftershave bottles",        "[frat house (1)]",     "27"],
+    ["greasy dreadlocks",               "[hippy camp (1)]",     "26"],
+    ["vials of pirate sweat",           "[pirate's cove (1)]",  "66"],
+    ["balls of white lint",             "[Whitey's Grove (1)]", "100"],
+    ["worthless pieces of yellow glass","[Dungeons of Doom (1)]","39"],
+    ["billy idols",                     "[Goatlet (1)]",        "271"],
+    ["burned-out arcanodiodes",         "[Airship (1)]",        "81"],
+    ["coal buttons",                    "[Ninja Snowmen (1)]",  "272"],
+    ["discarded pacifiers",             "[Castle:Top (1)]",     "324"],
+    ["disintegrating corks",            "[Wine Cellar (1)]",    "178"],
+    ["non-Euclidean hooves",            "[Louvre (1)]",         "106"],
+    ["sammich crusts",                  "[Roflmfao (1)]",       "80"],
+    */
   ];
   // going back to see the BHH gives the relevant text in the first <p>.
 
@@ -3563,16 +3563,16 @@ function at_bounty() {
 
 
   /*
-	$('p:first').each(function() {
-		var p = $(this);
-		var txt = p.text();
-		for (var i=0; i<bountyloc.length; i++) {
-			if (txt.indexOf(bountyloc[i][0]) !== -1) {
-				p.append(AppendLink(bountyloc[i][1],snarfblat(bountyloc[i][2])));
-				break;
-			}
-		}
-	});
+  $('p:first').each(function() {
+    var p = $(this);
+    var txt = p.text();
+    for (var i=0; i<bountyloc.length; i++) {
+      if (txt.indexOf(bountyloc[i][0]) !== -1) {
+        p.append(AppendLink(bountyloc[i][1],snarfblat(bountyloc[i][2])));
+        break;
+      }
+    }
+  });
 */
 
   // visiting the BHH for the first time gives the text in the first <td> of
@@ -3581,17 +3581,17 @@ function at_bounty() {
   // form.
 
   /*
-	$('table:eq(1) td:first').each(function() {
-		var p = $(this);
-		var txt = p.text();
-		if (txt.indexOf("Manual of Transcendent Olfaction") != -1) return;	// we'll be modifying the <p> above instead.
-		for (var i=0; i<bountyloc.length; i++) {
-			if (txt.indexOf(bountyloc[i][0]) != -1) {
-				p.append(AppendLink(bountyloc[i][1],snarfblat(bountyloc[i][2])));
-				break;
-			}
-		}
-	});
+  $('table:eq(1) td:first').each(function() {
+    var p = $(this);
+    var txt = p.text();
+    if (txt.indexOf("Manual of Transcendent Olfaction") != -1) return;  // we'll be modifying the <p> above instead.
+    for (var i=0; i<bountyloc.length; i++) {
+      if (txt.indexOf(bountyloc[i][0]) != -1) {
+        p.append(AppendLink(bountyloc[i][1],snarfblat(bountyloc[i][2])));
+        break;
+      }
+    }
+  });
 */
 
 }
@@ -3675,7 +3675,7 @@ function at_beerpong() {
           "You don't have the right response for that insult.</font></center>");
     }
   }
-  if ($('p:first').text().indexOf("You laugh as Ricket") != -1) {		// insert only upon beerpong success.
+  if ($('p:first').text().indexOf("You laugh as Ricket") != -1) {    // insert only upon beerpong success.
     $('a[href="cove.php"]').parent().prepend("<center><a href='" + snarfblat(158) + "'>Adventure in the F'c'le</a></center><br />");
   }
 }
@@ -3699,10 +3699,10 @@ function at_inventory() {
   else if (searchString.indexOf("action=message") != -1) {
     var fimg = $('img:first');
     var src = fimg.attr('src');
-    if (src.indexOf('blackbird1') != -1) {									// blackbird
+    if (src.indexOf('blackbird1') != -1) {                  // blackbird
       fimg.append(AppendLink('[use map]', inv_use(2054)));
     }
-    else if (src.indexOf('scroll1.gif') != -1) {							// 31337 scroll
+    else if (src.indexOf('scroll1.gif') != -1) {              // 31337 scroll
       var clov = $('b:lt(5):contains(clover)');
       if (clov.length > 0) {
         var quant = clov.text().match(/^[0-9]*/);
@@ -3716,7 +3716,7 @@ function at_inventory() {
   }
 
   // Real-time filtration (not ready for prime-time)
-//	if(GetPref("inlineitemfilter"))
+//  if(GetPref("inlineitemfilter"))
   $("#filter input").on("keyup", function (e) {
     var $input = $(this);
     var filterVal = $input.val().toLowerCase();
@@ -3786,14 +3786,14 @@ function at_inventory() {
             newlink.innerHTML = "[backup]";
             newlink.href = "#";
             //newlink.addEventListener('contextmenu',function(event)
-            //{	alert('pow!');}, false);
+            //{  alert('pow!');}, false);
             newlink.addEventListener('click', function (event) {
               this.innerHTML = "[backing up...]";
               GM_get(server + equip({
                 a: 'customoutfit',
                 oname: GetPref('backup')
               }),
-//							'/inv_equip.php?action=customoutfit&which=2&outfitname=' +
+//              '/inv_equip.php?action=customoutfit&which=2&outfitname=' +
 // GetPref('backup'),
                   function (response) {
                     for (var i = 0, len = document.links.length; i < len; i++) {
@@ -3968,7 +3968,7 @@ function at_galaktik() {
       num = $('b:eq(1)').text().split(" ")[0];
     }
     var docG = integer($('table.item').attr('rel').match(/id=(\d+)/)[1]);
-    if (GetPref('docuse') == 1 && docG < 233) {	// 231=unguent, 232=ointment.  we can auto-use those.
+    if (GetPref('docuse') == 1 && docG < 233) {  // 231=unguent, 232=ointment.  we can auto-use those.
       var sanitycheck = FindMaxQuantity(docG, num, 0, 0) + 1;
       if (num > sanitycheck) {
         num = sanitycheck;
@@ -3978,8 +3978,8 @@ function at_galaktik() {
       );
     }
     else {
-      //		AppendUseBox(docG, 0, 1, row.find('td center').get(0));
-      //		if (num > 1) NumberLink($('b:eq(1)').get(0));
+      //    AppendUseBox(docG, 0, 1, row.find('td center').get(0));
+      //    if (num > 1) NumberLink($('b:eq(1)').get(0));
     }
   }
   var howMany = $('input[name="howmany"]');
@@ -4030,8 +4030,8 @@ function at_bigisland() {
   }
   // add MAX buttons to the trade-in boxes
   var select = document.getElementsByTagName("select");
-  if (select && select.length > 0) {	// Items to trade in at the store?
-//		select[0].options.selectedIndex = 1;
+  if (select && select.length > 0) {  // Items to trade in at the store?
+//    select[0].options.selectedIndex = 1;
     var qty = document.getElementsByName("quantity")[0];
     MakeMaxButton(qty, function (event) {
       var selectItem = document.getElementsByName('whichitem')[0];
@@ -4066,7 +4066,7 @@ function at_store() {
 
   InlineItemDescriptions();
 
-  var firstTable = $('table:first tbody');		// we're interested in this when
+  var firstTable = $('table:first tbody');    // we're interested in this when
                                               // it's the "Results:" box from
                                               // buying something.
   var whichstore;
@@ -4114,26 +4114,26 @@ function at_store() {
     var acquireText = firstTable.find('tr:eq(1) td:first *:first');
     var bText = $('b:eq(1)').attr('valign', 'baseline');
     switch (whichstore) {
-      case 'b':		// everything from the bugbear bakery is cookable.
+      case 'b':    // everything from the bugbear bakery is cookable.
         bText.parent().append(AppendLink('[cook]', '/craft.php?mode=cook'));
         break;
-      case 'j':		// everything from the jeweler is pliable
+      case 'j':    // everything from the jeweler is pliable
         bText.parent().append(AppendLink('[ply]', 'craft.php?mode=jewelry'));
         break;
-      case 's':		// everything from the meatsmith is smithable.
+      case 's':    // everything from the meatsmith is smithable.
         if (weCameFrom('craft'))    //did we just buy a hammer?  go smithing.
         {
           mainpane_goto('/craft.php?mode=smith');
         }
         bText.parent().append(AppendLink('[smith]', 'craft.php?mode=smith'));
         break;
-      case 'h':		// everything from the hippy is cook/mix/stillable.
+      case 'h':    // everything from the hippy is cook/mix/stillable.
         bText.parent()
             .append(AppendLink('[cook]', 'craft.php?mode=cook'))
             .append(AppendLink('[mix]', 'craft.php?mode=cocktail'))
             .append(AppendLink('[still]', 'guild.php?place=still'));
         break;
-      case 'r':		// pirate store: untinker the dictionary.
+      case 'r':    // pirate store: untinker the dictionary.
         if (acquireString.indexOf('dictionary') != -1) {
           bText.parent().append(AppendLink('[untinker]', to_place('forestvillage&action=fv_untinker')));
         }
@@ -4206,7 +4206,7 @@ function at_craft() {
   dlinks = dlinks + "</font></center></td></tr>";
   $("table:first tr:eq(2)").after(dlinks);
   mlink = $('b:contains("Results:")');
-  ilink = $('a[href*="inv_use"]');	// link to install an already-owned
+  ilink = $('a[href*="inv_use"]');  // link to install an already-owned
                                     // campground item.  If it exists, we won't
                                     // put up our buy button.
   var tbltext = mlink.parents('table:first').text();
@@ -4279,7 +4279,7 @@ function at_craft() {
 function at_hermit() {
   $('img').each(function () {
     var onclick = this.getAttribute('onclick');
-    if (onclick != undefined && onclick.indexOf(":item") != -1)	// Hermit calls
+    if (onclick != undefined && onclick.indexOf(":item") != -1)  // Hermit calls
                                                                  // js:item(descid)
                                                                  // instead of
                                                                  // js:descitem(descid)
@@ -4292,12 +4292,12 @@ function at_hermit() {
   if (GetPref('shortlinks') > 1) {
     var p = $('p:first');
     var txt = $('body').text();
-    if (txt.indexOf("Hermit Permit required,") != -1) {			// no permit
+    if (txt.indexOf("Hermit Permit required,") != -1) {      // no permit
       var a = $('b:eq(1)');
       a.parent().prepend('<br>' + AppendBuyBox(42, 'm', 'Buy Permit', 1) + '<br>');
     }
-    else if (txt.indexOf("disappointed") != -1) {			// no trinkets
-      GM_get(server + 'api.php?what=inventory&for=MrScript', function (response) {		// Check gum and permit counts.
+    else if (txt.indexOf("disappointed") != -1) {      // no trinkets
+      GM_get(server + 'api.php?what=inventory&for=MrScript', function (response) {    // Check gum and permit counts.
         var invcache = $.parseJSON(response);
         var gum = invcache[23];
         if (gum === undefined) {
@@ -4313,7 +4313,7 @@ function at_hermit() {
           p.get(0).innerHTML += '<br><br>' + AppendBuyBox(23, 'm', 'Buy Gum', 0);
         }
         p.append('<br><br><center><font color="blue">You have ' + (gum == 0 ? " no " : gum) + (gum != 1 ? " gums " : " gum ")
-            //					+" and "+(hpermit==0?" no ":hpermit)+(hpermit!=1?"
+            //          +" and "+(hpermit==0?" no ":hpermit)+(hpermit!=1?"
             // permits ":" permit ")
             + "in inventory.</font></center><br>");
         switch (gum) {
@@ -4804,7 +4804,7 @@ function at_questlog() {
       }
       if (gotit) {
         return;
-      }		// did what we need in the switch, don't waste effort down here.
+      }    // did what we need in the switch, don't waste effort down here.
 // Here we put all the quests that have variable text in their labels, like
 // %Playername.
       if (txt.indexOf("White Citadel") != -1) {
@@ -4887,39 +4887,39 @@ function at_charpane() {
   var curHP, maxHP, curMP, maxMP, level, str, advcount, effLink;
   var oldcount = integer(GetCharData('advcount'));
   var effectsDB = {
-    'd33505': 3,		// confused
-    'cb5404': 58,	// teleportitis
-    '454d46': 139,	// purple tongue
-    '94e112': 140,	// green tongue
-    '61c56f': 141,	// orange tongue
-    'a4a570': 142,	// red tongue
-    'ec5873': 143,	// blue tongue
-    'cf4844': 144,	// black tongue
-    '173a9c': 165,	// smooth
-    '5e788a': 166,	// musk
-    '087638': 189,	// hotform
-    'a3c871': 190,	// coldform
-    '9574fa': 191,	// spookyform
-    '9a6852': 192,	// stenchform
-    '801f28': 193,	// sleazeform
-    '3e2eed': 221,	// chalky hand
-    'ec7f2f': 275,	// ultrahydrated
+    'd33505': 3,    // confused
+    'cb5404': 58,  // teleportitis
+    '454d46': 139,  // purple tongue
+    '94e112': 140,  // green tongue
+    '61c56f': 141,  // orange tongue
+    'a4a570': 142,  // red tongue
+    'ec5873': 143,  // blue tongue
+    'cf4844': 144,  // black tongue
+    '173a9c': 165,  // smooth
+    '5e788a': 166,  // musk
+    '087638': 189,  // hotform
+    'a3c871': 190,  // coldform
+    '9574fa': 191,  // spookyform
+    '9a6852': 192,  // stenchform
+    '801f28': 193,  // sleazeform
+    '3e2eed': 221,  // chalky hand
+    'ec7f2f': 275,  // ultrahydrated
     'f3549d': 285,   // filthworm larva stench
     '36f72c': 286,   // filthworm drone stench
     'eb09f5': 287,   // filthworm guard stench
-    '79289e': 292,	// Tetanus
-    '15f811': 295,	// socialismydia
-    'c69907': 297,	// temporary amnesia
-    '9a12b9': 301,	// Cunctatitis
-    'ebaff6': 357,	// Absinthe-minded
-    '91635b': 331,	// On The Trail
+    '79289e': 292,  // Tetanus
+    '15f811': 295,  // socialismydia
+    'c69907': 297,  // temporary amnesia
+    '9a12b9': 301,  // Cunctatitis
+    'ebaff6': 357,  // Absinthe-minded
+    '91635b': 331,  // On The Trail
     'aa5dbf': 510,   // Shape Of...Mole!
     '8c2bea': 846,   // Transpondent
-    '17c22c': 549,	// Fishy
-    '907cb5': 725	// Down the Rabbithole
+    '17c22c': 549,  // Fishy
+    '907cb5': 725  // Down the Rabbithole
   };
 
-//	SetData("charname",bText[0].textContent);
+//  SetData("charname",bText[0].textContent);
   var compressfam = GetPref("compressfam");
   if (compressfam > 0) {
     CompressThrallAndFamiliar(compressfam);
@@ -4950,7 +4950,7 @@ function at_charpane() {
     }
     advcount = integer($('a:contains("Adv"):first').parent().next().text());
 
-    var lvlblock = $("center:contains('Lvl.'):first").text();	// this text is
+    var lvlblock = $("center:contains('Lvl.'):first").text();  // this text is
                                                                // always present
                                                                // in compact
                                                                // mode
@@ -4988,7 +4988,7 @@ function at_charpane() {
       SetCharData("level", level);
     }
     else {
-      SetCharData("level", 13);		// failsafe setting if we couldn't find the
+      SetCharData("level", 13);    // failsafe setting if we couldn't find the
                                    // level block, generally due to a custom
                                    // title.
       level = 13;
@@ -5038,7 +5038,7 @@ function at_charpane() {
           "top.mainpane.location.href='http://" + server +
           "uneffect.php'; return false;");
     }
-  }	// end full mode processing
+  }  // end full mode processing
 
   if ($('#nudgeblock div:contains("a work in progress")').length > 0) {
     $('#nudgeblock').hide();
@@ -5050,7 +5050,7 @@ function at_charpane() {
   if (GetPref("questbottom") == 1) {
     $('#nudgeblock').appendTo($('center:eq(1)'));
   }
-//	$('#nudges').hide();
+//  $('#nudges').hide();
   $('#nudgeblock b:first').text("Current Quests");
   $('#nudgeblock a:first').after('<font size=1><div id=nbhint> click to hide</div></font>');
   $('#nudgeblock').click(function () {
@@ -5110,22 +5110,22 @@ function at_charpane() {
       img.parentNode.parentNode.setAttribute('name', 'poison');
       img.addEventListener('contextmenu', function (event) {
         document.getElementsByName('poison')[0].childNodes[1].innerHTML = "<i><span style='font-size:10px;'>Un-un-unpoisoning...</span></i>";
-        GM_get(server + 'api.php?what=inventory&for=MrScript', function (response) {			// see if we have some anti-anti-antidote onhand
+        GM_get(server + 'api.php?what=inventory&for=MrScript', function (response) {      // see if we have some anti-anti-antidote onhand
           var invcache = $.parseJSON(response); //eval('('+response+')');
           var antianti = invcache[829];
           if (antianti === undefined) {
             antianti = 0;
           }
           if (antianti > 0) {
-            GM_get(server + inv_use(829), function (event)	// yes: use it.
+            GM_get(server + inv_use(829), function (event)  // yes: use it.
             {
               top.frames[1].location.reload();
             });
           }
-          else {																		// no: buy it
+          else {                                    // no: buy it
             GM_get(server + 'galaktik.php?howmany=1&action=buyitem&whichitem=829&pwd=' + pwd,
                 function (result) {
-                  if (result.indexOf('acquire') != -1)									// buy success: use it.
+                  if (result.indexOf('acquire') != -1)                  // buy success: use it.
                   {
                     GM_get(server + inv_use(829), function (event) {
                       top.frames[1].location.reload();
@@ -5151,12 +5151,12 @@ function at_charpane() {
       switch (effNum) {
         case 275: // hydrated
           var hydtxt = img.parentNode.nextSibling.textContent;
-          if (/\(1\)/.test(hydtxt)) {			// 1 turn left?  set marker to add rehydrate link next adventure.
+          if (/\(1\)/.test(hydtxt)) {      // 1 turn left?  set marker to add rehydrate link next adventure.
             SetCharData('hydrate', advcount - 1);
           }
-          else if (/\(5\)/.test(hydtxt) || /\(20\)/.test(hydtxt))		// got 5 turns (or 20 from
+          else if (/\(5\)/.test(hydtxt) || /\(20\)/.test(hydtxt))    // got 5 turns (or 20 from
                                                                      // clover)
-                                                                     // now? 
+                                                                     // now?
                                                                      // add
                                                                      // Desert
                                                                      // link.
@@ -5189,7 +5189,7 @@ function at_charpane() {
         case 287:
           $(img).parent().next().children('font').wrap('<a target=mainpane href="bigisland.php?place=orchard" />');
           break;
-        case 357:	// absinthe-minded: link to wormwood; light up on 9/5/1 turns left.
+        case 357:  // absinthe-minded: link to wormwood; light up on 9/5/1 turns left.
           var abstxt = img.parentNode.nextSibling.textContent;
           var fontA, fontB;
           if (/\(9/.test(abstxt) || /\(5/.test(abstxt) || /\(1\)/.test(abstxt)) {
@@ -5296,7 +5296,7 @@ function at_skills() {
   }
 
   // Store list of restoratives we care about
-  var vich = document.getElementsByName("whichitem");		// the MP-restorers item
+  var vich = document.getElementsByName("whichitem");    // the MP-restorers item
                                                          // dropdown.
   if (vich[0] != undefined) {
     var json = "{";
@@ -5361,7 +5361,7 @@ function at_skills() {
         }
         else if (ENABLE_QS_REFRESH == 1 && event.which == 82) {
           self.location.reload();
-        }	// 'r'
+        }  // 'r'
       }, true);
 
       if (!miniSkills && temp.getAttribute('id') != 'skilltimes') {
@@ -5428,7 +5428,7 @@ function at_skills() {
         }
         else if (ENABLE_QS_REFRESH == 1 && event.which == 82) {
           self.location.reload();
-        }	// 82 = 'r'
+        }  // 82 = 'r'
       }, false);
 
       if (!miniSkills) {
@@ -5566,8 +5566,8 @@ function at_charsheet() {
         break;
       }
     }
-    if (ProtNum == 0) {	// it wasn't any of the easy ones
-      ProtNum = 5;	// so it must be "(...) High"
+    if (ProtNum == 0) {  // it wasn't any of the easy ones
+      ProtNum = 5;  // so it must be "(...) High"
       // additive modifiers
       if (pstring.indexOf("Very") != -1) {
         ProtNum += 1;
@@ -5606,12 +5606,12 @@ function at_charsheet() {
       else if (pstring.indexOf("Impossibly") != -1) {
         ProtNum += 54;
       }
-//			if (pstring.indexOf("" != -1) ProtNum += 0;
+//      if (pstring.indexOf("" != -1) ProtNum += 0;
       resistance = 90 - (50 * Math.pow(0.83333333, ProtNum - 4));
     }
     resistance += mystBonus;
-    resistance += '';	// convert to a string
-    resistance = resistance.substring(0, 5);	// and chop to at most 2 decimal
+    resistance += '';  // convert to a string
+    resistance = resistance.substring(0, 5);  // and chop to at most 2 decimal
                                               // places
     $(this).next().html($(this).next().html() + " (Lvl " + ProtNum + ", " + resistance + "%)");
   });
@@ -5622,8 +5622,8 @@ function at_thesea() {
   if (document.body.textContent.indexOf("Uh Oh!") != -1) {
     mainpane_goto(to_place("sea_oldman&action=oldman_oldman"));
   }
-//	if (document.body.textContent.length == 0)
-//		mainpane_goto('/oldman.php?action=talk');
+//  if (document.body.textContent.length == 0)
+//    mainpane_goto('/oldman.php?action=talk');
 }
 
 // OLDMAN: If the old man is not present, put up a SCUBA gear reminder.
@@ -5747,11 +5747,11 @@ function at_pandamonium() {
   var gotitem = $('.effect > b').text();
   if (gotitem == "Azazel's unicorn") {
     SetCharData("pandabandsolved", false);
-  }	// defensive clear for next time through
+  }  // defensive clear for next time through
   if (document.location.search == '?action=sven') {
     var bognort = 0, stinkface = 0, flargwurm = 0, jim = 0;
     var pandasolved = GetCharData("pandabandsolved");
-    if ((pandasolved == false) || (pandasolved == undefined)) {	// no solution found yet?
+    if ((pandasolved == false) || (pandasolved == undefined)) {  // no solution found yet?
       var itemlist = $('select[name="togive"]');
       var set1 = 0, set2 = 0;
       var bear = false, paper = false, marsh = false;
@@ -5791,7 +5791,7 @@ function at_pandamonium() {
         $('form[name="bandcamp"]').prepend('<p><font color="blue">No solution available yet.</font></p>');
         $('select').attr('style', 'color:red');
       }
-      else {	// >=2 of each set available-- solve it!
+      else {  // >=2 of each set available-- solve it!
         if (marsh) {
           bognort = 4673;
         }// "marshmallow"; //4673;
@@ -5821,10 +5821,10 @@ function at_pandamonium() {
         SetCharData("flargwurm", flargwurm);
         SetCharData("jim", jim);
         SetCharData("pandabandsolved", true);
-        at_pandamonium();	// process and present our new solution, I hope
+        at_pandamonium();  // process and present our new solution, I hope
       }
     }
-    else {	// time to implement the solution!
+    else {  // time to implement the solution!
       bognort = GetCharData("bognort");
       stinkface = GetCharData("stinkface");
       flargwurm = GetCharData("flargwurm");
@@ -5833,10 +5833,10 @@ function at_pandamonium() {
       var members = $('select[name="bandmember"]');
       var items = $('select[name="togive"]').get(0);
 // this is ugly-looking, but solid.
-      members.val("Bognort");				// Try to select this bandmember.
+      members.val("Bognort");        // Try to select this bandmember.
       // (This will fail if he already got his item.)
-      if (members.val() == "Bognort") { 	// were we able to select him successfully?
-        items.value = bognort; 			// select his item.
+      if (members.val() == "Bognort") {   // were we able to select him successfully?
+        items.value = bognort;       // select his item.
         members.attr('style', 'color:green');
         items.setAttribute('style', 'color:green');
       }
@@ -5883,7 +5883,7 @@ function at_pyramid() {
     checkInv.innerHTML = '<font size="2">[checking...]</font>';
     GM_get(server + 'api.php?what=inventory&for=MrScript', function (response) {
       if (response[0] != '{') {
-        var i1 = response.split('inventory = ')[1].split(';')[0];	// should get
+        var i1 = response.split('inventory = ')[1].split(';')[0];  // should get
                                                                    // everything
                                                                    // from { to
                                                                    // },
@@ -5974,10 +5974,10 @@ function at_cave() {
   if (subloc.indexOf("action=door") != -1) {
     doorpicname = $('img:first').attr('src');
     var door = doorpicname.slice(doorpicname.lastIndexOf('/'));
-    if (dooritem[door]) {	// item is in our list
+    if (dooritem[door]) {  // item is in our list
       var descid = $('option[value="' + dooritem[door][0] + '"]').attr('descid');
-      if (descid) { 	// item is in the selection list
-        $('select[name="whichitem"]').attr('style', 'color:green');	// mark as
+      if (descid) {   // item is in the selection list
+        $('select[name="whichitem"]').attr('style', 'color:green');  // mark as
                                                                      // selected
         $('option[value="' + dooritem[door][0] + '"]').attr('selected', 'selected');// select the right item
       }
@@ -5986,13 +5986,13 @@ function at_cave() {
         $('select[name="whichitem"]')
             .attr('style', 'color:red')
             .parent().append(failnote);
-        if (door == '/db_door3.gif') {	// if it's the DB door 3, un-red it and add a little note.
+        if (door == '/db_door3.gif') {  // if it's the DB door 3, un-red it and add a little note.
           $('select[name="whichitem"]')
               .attr('style', 'color=black')
               .parent().append('<center><p><font color="blue">(Go ahead, pick one from the list if you have one.)</font></center>');
         }
-        else if (door == '/at_door3.gif') {	// if it's the AT door 3, check for success.
-          if ($('p:eq(2)').text().indexOf("could really use a regular") == -1) {	// if we don't see success, display failure info.
+        else if (door == '/at_door3.gif') {  // if it's the AT door 3, check for success.
+          if ($('p:eq(2)').text().indexOf("could really use a regular") == -1) {  // if we don't see success, display failure info.
             $('p:eq(2)').append(failnote);
           }
         }
@@ -6234,9 +6234,9 @@ function at_lair6() {
 
 // FAMILIAR: Blackbird singing in the dead of night.
 //function at_familiar() {
-//	if ($('img:first').attr('src').indexOf('blackbird') != -1)
-//	{
-//		$('img:first').nextAll('b:first').after(AppendLink('[map
+//  if ($('img:first').attr('src').indexOf('blackbird') != -1)
+//  {
+//    $('img:first').nextAll('b:first').after(AppendLink('[map
 // it!]',inv_use(2054))); } }
 
 // MINING: uber-twinklify all twinkly images.
@@ -6244,7 +6244,7 @@ function at_mining() {
 // Image courtesy of Picklish's Mining Helper script.
   var staticSparkleImg = "data:image/gif;base64,R0lGODlhMgAyAOMPAP39/dvb2zc3NycnJ5qams3NzQUFBRAQEGtra6enp7W1te3t7UZGRldXV319ff///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQJAQAPACwAAAAAMgAyAAAEW/DJSau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru8rg/AUR+AAfBwCgd/OMFA4GguEQXcEJAQEQGM3ECAAUSIwkJgWn0WJwZxuu9/wuHxOr9vv+Lx+z+/77xEAIfkECQEADwAsAAAAADIAMgAABGvwyUmrvTjrzbv/YCiOZGmeaKqubOu+cCzPdG3feM4Jhm4FA18lIRBSEgzjpKDoGRmLAsJAddYaBEJAMQB4AYqbIKuILhwCRlAXWKyNWaVEKn8kEHVCo36w1v+AgYKDhIWGh4iJiouMjY4kEQAh+QQJAQAPACwAAAAAMgAyAAAEl/DJSau9OOvNu/9gKI5kaZ5oqq5s675wLLeHMXNHYd/aAAy83i+YMRQERMwhgEhefA6npQFISCmGQEJ3NTAUhYMCYRM0CMCYoYEoAAi1Adi9OMoGhXwgIDAcHAsJDEE7Bgl8eQM7TkYACotXVA1XFD6DlBIDC2mYRpyUOUiYD56jpAWXowqfpq2ur7CxsrO0tba3uLm6GhEAIfkECQEADwAsAAAAADIAMgAABGvwyUmrvTjrzbv/YCiOZGmeaKqubOu+cCzPdG3feM4Jhm4FA18lIRBSEgzjpKDoGRmLAsJAddYaBEJAMQB4AYqbIKuILhwCRlAXWKyNWaVEKn8kEHVCo36w1v+AgYKDhIWGh4iJiouMjY4kEQAh+QQJAQAPACwAAAAAMgAyAAAEW/DJSau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru8rg/AUR+AAfBwCgd/OMFA4GguEQXcEJAQEQGM3ECAAUSIwkJgWn0WJwZxuu9/wuHxOr9vv+Lx+z+/77xEAOw==";
   $("img[src*='wallsparkle']").attr("src", staticSparkleImg);
-  if (document.location.search.indexOf("mine=1") != -1) {	// don't display quest data in the knob shaft (mine=2), only the dwarf mine
+  if (document.location.search.indexOf("mine=1") != -1) {  // don't display quest data in the knob shaft (mine=2), only the dwarf mine
                                                            // (mine=1).
     var oretype = GetCharData("oretype");
     var orenumber = GetCharData("orenumber");
@@ -6283,24 +6283,24 @@ function at_mining() {
   // values.
   $('input').click(function () {
     clearwhiches();
-  });		// if mining_which is set, it's because we just reloaded the page after
+  });    // if mining_which is set, it's because we just reloaded the page after
          // clicking on a square.
   var which = GetCharData("mining_which");
   SetCharData("mining_which", 0);
   if (which != 0 && which !== undefined) {
-    var got = $('.item tr td img').attr("src");		// see what we got.
-    SetCharData("which" + which, got);					// save it.
+    var got = $('.item tr td img').attr("src");    // see what we got.
+    SetCharData("which" + which, got);          // save it.
   }
-  $('img[alt*="Open Cavern"]').each(function () {		// replace each "Open Cavern" picture with the image we saved.
+  $('img[alt*="Open Cavern"]').each(function () {    // replace each "Open Cavern" picture with the image we saved.
     var alt = $(this).attr('alt');
-    var xc = integer(alt.match(/(\d)/g)[0]);		// convert from "Open Cavern (1,
+    var xc = integer(alt.match(/(\d)/g)[0]);    // convert from "Open Cavern (1,
                                                 // 4) to the number in the
                                                 // "mine=1?which=xx" link.
     var yc = integer(alt.match(/(\d)/g)[1]);
     var foo = (xc + (yc * 8));
     if (foo > 54) {
       return;
-    }	// that's the last of the mine-able squares
+    }  // that's the last of the mine-able squares
     var myimage = GetCharData("which" + foo);
     if (myimage !== undefined) {
       $(this).attr('src', myimage);
@@ -6316,8 +6316,8 @@ function clearwhiches() {
 
 function at_gamestore() {
   var select = document.getElementsByTagName("select");
-  if (select) {	// cards to trade in, while at the cashier.
-    select[0].options.selectedIndex = 1;	// select first card, saving clicks
+  if (select) {  // cards to trade in, while at the cashier.
+    select[0].options.selectedIndex = 1;  // select first card, saving clicks
                                           // for tradeins.
     var qty = document.getElementsByName("quantity");
     // put the Max Button on the last "quantity" box (out of ronin/HC, there's
@@ -6330,7 +6330,7 @@ function at_gamestore() {
         box.value = quant;
       });
     }
-    else {	// length should equal 1
+    else {  // length should equal 1
       MakeMaxButton(qty[0], function (event) {
         var selectItem = document.getElementsByTagName("select")[0];
         var box = document.getElementsByName('quantity')[0];
@@ -6598,7 +6598,7 @@ function at_bathole() {
   GM_get(server + "api.php?what=inventory&for=MrScript", function (rv) {
     var inv = $.parseJSON(rv);
     var sonar = inv['563'];
-    //	if (sonar === undefined) sonar = 0;
+    //  if (sonar === undefined) sonar = 0;
     if (sonar) {
       $("a:last").append("<br /><center><a href='" + inv_use('563') + "'><font color='blue'>Use a sonar</font></a></center>");
     }
@@ -6965,27 +6965,27 @@ function spoil_plains2() {
 
 /* // DEPRECATED; confirm that these are no longer needed
 function spoil_knob() {
-	$('img').each(function() {
-		var ml = null; var src = this.getAttribute('src');
-		if (src.indexOf("knob3") != -1) ml = '1-2';
-		else if (src.indexOf("knob4") != -1) ml = '20-22';
-		else if (src.indexOf("knob6") != -1) ml = '24-32';
-		else if (src.indexOf("knob7") != -1) ml = '26-32';
-		else if (src.indexOf("knob9") != -1) ml = '57';
-		if (ml) this.setAttribute('title','ML: '+ml);
-	});
+  $('img').each(function() {
+    var ml = null; var src = this.getAttribute('src');
+    if (src.indexOf("knob3") != -1) ml = '1-2';
+    else if (src.indexOf("knob4") != -1) ml = '20-22';
+    else if (src.indexOf("knob6") != -1) ml = '24-32';
+    else if (src.indexOf("knob7") != -1) ml = '26-32';
+    else if (src.indexOf("knob9") != -1) ml = '57';
+    if (ml) this.setAttribute('title','ML: '+ml);
+  });
 }
 
 function spoil_knob2() {
-	$('img').each(function() {
-		var ml = null; var src = this.getAttribute('src');
-		if (src.indexOf("knob22") != -1) ml = '40-45';
-		else if (src.indexOf("knob23") != -1) ml = '50-56';
-		else if (src.indexOf("knob26") != -1) ml = '60-66';
-		else if (src.indexOf("knob29") != -1) ml = '70-76';
-		else if (src.indexOf("shaft2") != -1) ml = '30';
-		if (ml) this.setAttribute('title','ML: '+ml);
-});	}
+  $('img').each(function() {
+    var ml = null; var src = this.getAttribute('src');
+    if (src.indexOf("knob22") != -1) ml = '40-45';
+    else if (src.indexOf("knob23") != -1) ml = '50-56';
+    else if (src.indexOf("knob26") != -1) ml = '60-66';
+    else if (src.indexOf("knob29") != -1) ml = '70-76';
+    else if (src.indexOf("shaft2") != -1) ml = '30';
+    if (ml) this.setAttribute('title','ML: '+ml);
+});  }
 */
 
 function spoil_cobbsknob() {
@@ -7093,7 +7093,7 @@ function spoil_woods() {
     else if (src.indexOf("temple") != -1) {
       ml = 'scales to 50';
     }
-//		else if (src.indexOf("tavern") != -1) ml = '10';
+//    else if (src.indexOf("tavern") != -1) ml = '10';
     if (ml) {
       this.setAttribute('title', 'ML: ' + ml);
     }
@@ -7157,7 +7157,7 @@ function spoil_cove() {
   });
 }
 
-function spoil_da() {		// dungeoneer's association, yay.
+function spoil_da() {    // dungeoneer's association, yay.
   $('img').each(function () {
     var ml = null;
     var src = this.getAttribute('src');
@@ -7197,7 +7197,7 @@ function spoil_friars() {
     }
     else if (src.indexOf("stones") != -1) {
       ml = '40-52';
-    }		// post-Azazel
+    }    // post-Azazel
     if (ml) {
       this.setAttribute('title', 'ML: ' + ml);
     }
@@ -7282,7 +7282,7 @@ function spoil_mclargehuge() {
   });
 }
 
-function spoil_cave() {			// dark and dank and sinister cave, that is...
+function spoil_cave() {      // dark and dank and sinister cave, that is...
   $('img[src*="chamberbottom"]').attr('title', 'ML: 20-25');
   $('img[src*="chamber_door"]').attr('title', 'ML: 27');
 }
@@ -7392,7 +7392,7 @@ function spoil_postwarisland() {
     }// frathouse, unbombed
     else if (src.indexOf("28.gif") != -1) {
       ml = '39-41';
-    } 	// hippy camp, unbombed
+    }   // hippy camp, unbombed
     if (ml) {
       this.setAttribute('title', 'ML: ' + ml);
     }
@@ -7411,7 +7411,7 @@ function spoil_thesea() {
     }// brinier
     else if (src.indexOf("sea3") != -1) {
       ml = '375-425';
-    }		// briniest
+    }    // briniest
     if (ml) {
       this.setAttribute('title', 'ML: ' + ml);
     }
@@ -7448,8 +7448,8 @@ function spoil_seafloor() {
     }// Calyginous Abyss
     else if (src.indexOf("corral") != -1) {
       ml = '600-750';
-    }		// Coral Corral
-//		else if (src.indexOf("") != -1) ml = '';
+    }    // Coral Corral
+//    else if (src.indexOf("") != -1) ml = '';
     if (ml) {
       this.setAttribute('title', 'ML: ' + ml);
     }
@@ -7574,17 +7574,17 @@ function at_topmenu() {
   // and can't think of a better place for... gotta clear these out when you
   // ascend, which you may do on a different computer occasionally.
   if (integer(GetCharData('level')) < 10) {
-//		SetCharData("corner178",0);
-//		SetCharData("corner179",0);
-//		SetCharData("corner180",0);
-//		SetCharData("corner181",0);
-//		SetCharData("winelist",'');
-//		SetCharData("wineHTML",'');
-//		SetCharData("winesNeeded",'');
-//		SetCharData("altar1",'');
-//		SetCharData("altar2",'');
-//		SetCharData("altar3",'');
-//		SetCharData("altar4",'');
+//    SetCharData("corner178",0);
+//    SetCharData("corner179",0);
+//    SetCharData("corner180",0);
+//    SetCharData("corner181",0);
+//    SetCharData("winelist",'');
+//    SetCharData("wineHTML",'');
+//    SetCharData("winesNeeded",'');
+//    SetCharData("altar1",'');
+//    SetCharData("altar2",'');
+//    SetCharData("altar3",'');
+//    SetCharData("altar4",'');
     SetCharData("nunmoney", 0);
   }
   var compactmode = document.getElementsByName('loc').length; // compact mode
@@ -7702,7 +7702,7 @@ function at_topmenu() {
     if (txt == "town") {
       a.html("town:");
       a.after(' <a href="da.php" target="mainpane">dungeons</a>');
-//			a.after(' <a href="forestvillage.php" target="mainpane">F-ville</a>');
+//      a.after(' <a href="forestvillage.php" target="mainpane">F-ville</a>');
       a.after(' <a href="bordertown.php" target="mainpane">B-town</a>');
       a.after(' <a href="town_right.php" target="mainpane">R)</a>');
       a.after(' <a href="town_wrong.php" target="mainpane">(W</a>');
@@ -7727,7 +7727,7 @@ function at_topmenu() {
               'target="mainpane">inv</a>')
           .before('<a href="inventory.php?which=2" ' +
               'target="mainpane">ent</a>');
-      a.after(' <a href="inventory.php?which=f0" target="mainpane">fav</a>');	// 21Dec09
+      a.after(' <a href="inventory.php?which=f0" target="mainpane">fav</a>');  // 21Dec09
                                                                                // Hellion:
                                                                                // added
                                                                                // favorites
@@ -7779,7 +7779,7 @@ function at_topmenu() {
     }
     guy.setAttribute('href', swordGuyURL);
     swordGuy.attr('border', 0);
-    swordGuy.attr('id', 'swordguy');	// add ID tag for later easy selection
+    swordGuy.attr('id', 'swordguy');  // add ID tag for later easy selection
     swordGuy.wrap(guy);
 
     swordGuy.get(0).addEventListener('contextmenu', function (event) {
@@ -8092,7 +8092,7 @@ function at_compactmenu() {
       if (selectItem.options[i].innerHTML.indexOf("Nearby Plains") != -1) {
         AddTopOption("The Beanstalk", to_place("beanstalk"), selectItem, selectItem.options[i + 1]);
         AddTopOption("Spookyraven Manor", "manor.php", selectItem, selectItem.options[i + 2]);
-        len += 2;	// extend loop to cover new options just added.
+        len += 2;  // extend loop to cover new options just added.
       }
       if (selectItem.options[i].innerHTML.indexOf("Seaside Town") != -1) {
         AddTopOption("Town: Wrong side", "town_wrong.php", selectItem, selectItem.options[i + 1]);
@@ -8218,7 +8218,7 @@ function buildPrefs() {
     select.options[3].innerHTML = "Saved";
     select.options[4].innerHTML = "PvP";
     prefSpan.appendChild(choice);
-//		prefSpan.appendChild(MakeOption("Mall Link -> Search", 2, 'malllink',
+//    prefSpan.appendChild(MakeOption("Mall Link -> Search", 2, 'malllink',
 // "Off", "On"));
 
     prefSpan.appendChild(MakeOption("ML and zone Spoilers: ", 2, 'zonespoil', "Off", "On"));
