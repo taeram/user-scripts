@@ -2,7 +2,7 @@
 // @name        Mr. Script
 // @namespace   http://www.noblesse-oblige.org/lukifer/scripts/
 // @description	interface overhauler for KingdomofLoathing.com
-// @version		1.81
+// @version		1.82
 // @license GPL (http://www.gnu.org/copyleft/gpl.html)
 // @author		Lukifer
 // @contributor	Ohayou
