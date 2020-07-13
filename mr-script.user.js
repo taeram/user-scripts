@@ -1,18 +1,9 @@
-// Mr. Script v1.81
-//
-// --------------------------------------------------------------------
-// This is a user script.  To install it, you need Greasemonkey 0.8 or
-// later. Get it at https://addons.mozilla.org/en-US/firefox/addon/748
-// To uninstall, go to Tools/Manage User Scripts, select "Mr. Script",
-// check "Also uninstall associated preferences" and click "Uninstall".
-// Released under the GPL license: http://www.gnu.org/copyleft/gpl.html
-// --------------------------------------------------------------------
-//
 // ==UserScript==
 // @name        Mr. Script
 // @namespace   http://www.noblesse-oblige.org/lukifer/scripts/
 // @description	interface overhauler for KingdomofLoathing.com
 // @version		1.81
+// @license GPL (http://www.gnu.org/copyleft/gpl.html)
 // @author		Lukifer
 // @contributor	Ohayou
 // @contributor Hellion
@@ -21,20 +12,17 @@
 // @contributor BeingEaten
 // @contributor Picklish
 // @contributor	CharonTheHand
-// @include     http://127.0.0.1:60*/*
-// @include		http://*localhost:*/*
-// @include     http://*kingdomofloathing.com/*
-// @exclude     http://images.kingdomofloathing.com/*
-// @exclude     http://forums.kingdomofloathing.com/*
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
-// @grant	GM_log
-// @grant	GM_setValue
-// @grant	GM_getValue
-// @grant	GM_deleteValue
-// @grant	GM_xmlhttpRequest
+// @include     https://*kingdomofloathing.com/*
+// @exclude     https://images.kingdomofloathing.com/*
+// @exclude     https://forums.kingdomofloathing.com/*
+// @require     https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+// @grant	      GM_log
+// @grant	      GM_setValue
+// @grant	      GM_getValue
+// @grant	      GM_deleteValue
+// @grant	      GM_xmlhttpRequest
 // @unwrap
 // ==/UserScript==
-
 
 var place = location.pathname.replace(/\/|\.(php|html)$/gi, "").toLowerCase();
 if (place === "place") {
@@ -44,7 +32,6 @@ if (place === "place") {
   }
 }
 //console.time("Mr. Script @ " + place);
-//GM_log("at:" + place);
 
 // n.b. version number should always be a 3-digit number.  If you move to 1.9,
 // call it 1.9.0.  Don't go to 1.8.10 or some such.
@@ -61,16 +48,14 @@ var global = this; //, mr = unsafeWindow.top.mr = global;
 // characters and keep them straight. not nearly so nifty now that there's only
 // www and dev....
 var server = location.host + "/";
-var serverNo = (server.match(/(.)\./) || {1: "L"})[1]; 	// the "7" in www7.X,
-                                                        // or an "L" if no . is
-                                                        // in the hostname.
 
+// the "7" in www7.X, or an "L" if no . is in the hostname.
+var serverNo = (server.match(/(.)\./) || {1: "L"})[1];
 var pwd = GM_getValue('hash.' + server.split('.')[0]);
-
 var prefAutoclear = GetPref('autoclear');
 var prefSpoilers = GetPref('zonespoil') == 1;
 
-//really cool hack to capture DomNodeInserts without having to use the
+// Really cool hack to capture DomNodeInserts without having to use the
 // deprecated DOMNodeInserted event, which is apparently a huge performance
 // drain: after the document is loaded, slap an invisible animation onto any
 // "interesting" new elements that arrive. bind a handler to the
@@ -80,7 +65,7 @@ var prefSpoilers = GetPref('zonespoil') == 1;
 
 addCss('@-moz-keyframes nodeInserted { from { clip: rect(1px,auto,auto,auto) } to { clip: rect(0px,auto,auto,auto) } }');
 
-//specify what an "interesting" element is... any "Results:" block has this
+// Specify what an "interesting" element is... any "Results:" block has this
 // form.
 
 addCss('center > center > table > tbody > tr > td > b { animation-duration: 0.001s; animation-name: nodeInserted }');
@@ -177,7 +162,7 @@ function ResultHandler(e) {
       process_effect(btext, bnode);
     }
     else { // some non-equip/acquire event took place, such as a quest item opening a
-  // zone.
+           // zone.
       btext = effdiv.children('center:first').text();
       var insertAt = effdiv.find('blockquote:first');
       if (insertAt.length === 0) {
@@ -1216,7 +1201,7 @@ function AddLinks(descId, theItem, formWhere, path) {
     case 2334:
     case  2766:
     case  2829:										// MacGuffin, solid gold bowling ball, really dense meat
-                     // stack
+                                   // stack
       addWhere.append(AppendLink('[council]', 'council.php', false));
       break;
 
@@ -1289,7 +1274,7 @@ function AddLinks(descId, theItem, formWhere, path) {
       break;
 
     case 1766:                                                              // ballroom
-                                                                        // key
+                                                                            // key
       addWhere.append(AppendLink('[ballroom (1)]', snarfblat(109)));
       break;
 
@@ -1457,8 +1442,8 @@ function AddLinks(descId, theItem, formWhere, path) {
           '&which=1&whichitem=' + itemNum));
       break;
     case 2054:                                                              // black
-                                                                        // market
-                                                                        // map
+                                                                            // market
+                                                                            // map
       //add link to switch to blackbird or crow
       addWhere.append(AppendLink('[switch to blackbird]', 'familiar.php?action=newfam&newfam=59'));
       break;
@@ -1470,15 +1455,15 @@ function AddLinks(descId, theItem, formWhere, path) {
       addWhere.append(AppendLink('[visit Mr. Alarm]', to_place('palindome&action=pal_mroffice')));
       break;
     case 2347:	                                                            //heart
-                                                                       // of
-                                                                       // the
-                                                                       // filthworm
-                                                                       // queen
+                                                                            // of
+                                                                            // the
+                                                                            // filthworm
+                                                                            // queen
       addWhere.append(AppendLink('[turn it in!]', 'bigisland.php?place=orchard&action=stand&pwd=' + pwd));
       break;
     case 3471:                                                              // damp
-                                                                        // old
-                                                                        // boot
+                                                                            // old
+                                                                            // boot
       addWhere.append(AppendLink('[old man, see?]', 'oldman.php'));
       break;
     case 4621: 																// Game Grid Token
@@ -1502,8 +1487,8 @@ function AddLinks(descId, theItem, formWhere, path) {
       addWhere.append(AppendLink('[back to the guild]', 'guild.php?place=challenge'));
       break;
     case 5221:                                                              // fat
-                                                                        // loot
-                                                                        // token
+                                                                            // loot
+                                                                            // token
       addWhere.append(AppendLink('[spend it!]', 'shop.php?whichshop=damachine', false));
       break;
     case 1764:
@@ -1511,16 +1496,16 @@ function AddLinks(descId, theItem, formWhere, path) {
       addWhere.append(AppendLink('[library (1)]', snarfblat(390)));
       break;
     case 5570:                                                              // ninja
-                                                                        // carabiner
+                                                                            // carabiner
       addWhere.append(AppendLink('[Open the Peak!]', to_place('mclargehuge&action=cloudypeak')));
       break;
     case 5571:
       addWhere.append(AppendLink('[visit the John]', to_place('mclargehuge&action=trappercabin')));
       break;
     case 5690:                                                              // bugbear
-                                                                        // invasion:
-                                                                        // goldblum
-                                                                        // larva
+                                                                            // invasion:
+                                                                            // goldblum
+                                                                            // larva
       addWhere.append(AppendLink('[mothership!]', to_place('bugbearship&action=bb_bridge')));
       break;
     case 5782:
@@ -1533,8 +1518,8 @@ function AddLinks(descId, theItem, formWhere, path) {
       break;
     case 6693:
     case 6694:                                                  // McClusky file,
-                                                            // page 5, binder
-                                                            // clip
+                                                                // page 5,
+                                                                // binder clip
       addWhere.append(AppendLink('[bind!]', inv_use(6694)));
       break;
     case 7179:
@@ -1548,22 +1533,23 @@ function AddLinks(descId, theItem, formWhere, path) {
       break;
     case 7185:
     case 7178:                                                   // copperhead
-                                                             // charms
+                                                                 // charms
       addWhere.append(AppendLink('[man, o nam]', 'craft.php?mode=combine&' +
           'action=craft&a=7185&b=7178&pwd=' + pwd +
           '&qty=1'));
       break;
     case 7262:
     case 7270:                                                   // I Love Me, 2
-                                                             // Love Me
+                                                                 // Love Me
       doWhat = "oneuse";
       //addWhere.append(AppendLink('[The Dr is
       // In!]',to_place('palindome&action=pal_droffice'))); break;
     case 4029:		                                                        // Hyboria:
-                                                                    // memory
-                                                                    // of a
-                                                                    // grappling
-                                                                    // hook
+                                                                          // memory
+                                                                          // of
+                                                                          // a
+                                                                          // grappling
+                                                                          // hook
       if (GetCharData("Krakrox") == "A") {
         SetCharData("Krakrox", "B");
       }
@@ -2284,8 +2270,8 @@ function at_main() {
   FindHash();
   setTimeout("if (top.frames[0].location == 'about:blank')" +
       " top.frames[0].location = 'topmenu.php'", 1500);	// fix for top menu not
-                                                        // always loading
-                                                        // properly
+                                                         // always loading
+                                                         // properly
 
   // n.b. the :eq(1) below is important because of the nested-table layout.
   // only select the inner TR.
@@ -2317,18 +2303,18 @@ function at_game() {
     GM_get("noblesse-oblige.org/hellion/scripts/MrScript.version.json",
         function (txt) {
           txt = txt.replace(/\n/, '');		// strip carriage returns so that
-                                        // eval() doesn't blow up
+                                          // eval() doesn't blow up
           var json = $.parseJSON(txt);
           if (!json.version) {
             return;
           }
           var vnum = json.version.replace(/\./g, "");	// strip points: 1.4.3 =>
-                                                      // 143.
+                                                       // 143.
           if (!vnum) {
             return;
           }
           if (integer(vnum) <= VERSION)		// number returned via lookup is not newer than
-                               // what this script says it is...
+                                           // what this script says it is...
           {
             persist('MrScriptLastUpdate',
                 integer(new Date().getTime() / 3600000));
@@ -2388,8 +2374,8 @@ function at_fight() {
     "a concert pianist": ["Knob Goblin firecracker", "", 1, 0],
     "the darkness": ["inkwell", "", 1, 0],
     " El Diablo": ["mariachi G-string", "", 1, 0],		// note: leading space is
-                                                    // very important.  do not
-                                                    // remove it.
+                                                      // very important.  do not
+                                                      // remove it.
     "an Electron Submarine": ["photoprotoneutron torpedo", "", 1, 0],
     "an endangered inflatable white tiger": ["pygmy blowgun", "", 1, 0],
     "an Enraged Cow": ["barbed-wire fence", "", 1, 0],
@@ -2464,7 +2450,7 @@ function at_fight() {
   if (infight != "Y") {	// first time through this particular fight?
     SetCharData("infight", "Y");
     SetCharData("special", 0);	// defensive clearing in case it got left set
-                               // somehow.
+                                // somehow.
     var monsterItem = MonsterArray[monsterName];
     if (monsterItem != undefined && GetPref('lairspoil') != 1 && monsterItem[2] == 1) {
       return;
@@ -2610,13 +2596,13 @@ function CheckLocation(square) {
   }
   else {	// handling adventure.php?snarfblat=X options.
     var location = integer(square.match(/(\d+)/)[1]);	// the 185 in
-                                                      // "adventure.php?snarfblat=185"
+                                                       // "adventure.php?snarfblat=185"
     switch (location) {
       case 182:
       case 183:
       case 184:
       case 185:	// Junkyard: add onclick to "adventure again" link to tell ourselves
-          // where we are.
+                 // where we are.
         $('a:contains("dventure")').click(function () {
           var a = $(this);
           SetCharData("square", a.attr('href'));
@@ -2637,7 +2623,7 @@ function ProcessGremlinCombat(monsterName) {
   };
 
   var zonetext = GetCharData("square");	// should have something like
-                                        // "adventure.php?snarfblat=182"
+                                         // "adventure.php?snarfblat=182"
   var zone = zonetext ? integer(zonetext.match(/(\d+)/)[1]) : 0;
 
   // if the monster doesn't drop the item in this zone, or we see the
@@ -2686,11 +2672,11 @@ function ProcessNunMeatDrops() {
   // up before nun meat) and Sneaky Pete's bike (shows up after nun meat). use
   // 'first' below in an SP run, 'last' otherwise.
   var meatline = $("img[src*='meat.gif']:first").parent().next().text();	// should
-                                                                         // be
-                                                                         // "You
-                                                                         // gain
-                                                                         // X
-                                                                         // meat"
+                                                                          // be
+                                                                          // "You
+                                                                          // gain
+                                                                          // X
+                                                                          // meat"
   if (/Meat\./.test(meatline)) {
     GM_log("Meatline was: " + meatline);
     GM_log("found a dot, trying again....");
@@ -3095,9 +3081,10 @@ function at_adventure() {
       break;
     case "Polo Tombstone":
       $('a[href="adventure.php?snarfblat=103"]').remove();		// don't need to
-                                                            // adventure again
-                                                            // once we have the
-                                                            // key.
+                                                              // adventure
+                                                              // again
+                                                              // once we have
+                                                              // the key.
       $('<center><a href="adventure.php?snarfblat=106">Adventure in the Haunted Gallery</a></center><br />').prependTo($('a:last').parent());
       break;
     case "Entour Rage":
@@ -3137,7 +3124,7 @@ function at_adventure() {
       $('<center><a href="' + snarfblat(385) + '">Adventure in the Red Zeppelin</a></center><br />').prependTo($('a:last').parent());
       break;
     case "":	// got a "You shouldn't be here" or other reject message... (or an
-         // untitled Limerick Dungeon adventure, sigh)
+              // untitled Limerick Dungeon adventure, sigh)
       if (document.location.search == "?snarfblat=100") {	// we were trying for Whitey's Grove; go get the quest from the guild.
         mainpane_goto("guild.php?place=paco");
       }
@@ -3192,7 +3179,7 @@ function at_guild() {
         $('p:last').append(AppendLink('[Misspelled Cemetary (1)]', snarfblat(21)));
       }
       else if ((tdtext.indexOf("brought me Fernswarthy's key") != -1) || 	// mus inter for
-                                                           // finding F's key
+          // finding F's key
           (tdtext.indexOf("brought the key to") != -1) ||					// mys inter
           (tdtext.indexOf("haven't got Fern") != -1))						// mox inter
       {
@@ -3207,19 +3194,19 @@ function at_guild() {
       break;
     case "?place=scg":
       if (tdtext.indexOf("the two oldest and wisest") != -1) 		// common opening
-                                                         // phrase, yay.
+                                                                // phrase, yay.
       {
         $('p:last').append(AppendLink('[hermit]', 'hermit.php')).append(AppendLink('[casino]', 'casino.php'));
       }
       else if ((tdtext.indexOf("not completed your Epic") != -1) ||		// Mus interstitial
           (tdtext.indexOf("not yet completed your Epic") != -1) || // Mys
-                                                                   // interstitial
+          // interstitial
           (tdtext.indexOf("delay on that epic") != -1))			// Mox interstitial
       {
         td.append(AppendLink('[hermit]', 'hermit.php')).append(AppendLink('[casino]', 'casino.php'));
       }
       else if (tdtext.indexOf("Beelzebozo") != -1) 						// EW->LEW assignment, all
-                                              // classes.
+                                                              // classes.
       {
         $('p:last').append(AppendLink('[Fun House (1)]', snarfblat(20)));
       }
@@ -3259,18 +3246,18 @@ function at_guild() {
       //add links here for going to haunted pantry, sleazy back alley, or
       // Cobb's Knob.
       if ((tdtext.indexOf("So you wanna join the Department of Shadowy") != -1) ||    // moxie
-                                                                            // quest
-                                                                            // opener
+          // quest
+          // opener
           (tdtext.indexOf("manage to steal your own pants") != -1)) {                 // moxie not-done-yet
         $('p:last').append(AppendLink('[back alley (1)]', snarfblat(112)));
       }
       else if ((tdtext.indexOf("particularly the big ones") != -1) ||               // muscle
-                                                                     // opener
+          // opener
           (tdtext.indexOf("it has to be a really big one") != -1)) {           // muscle not-done-yet
         $('p:last').append(AppendLink('[knob outskirts (1)]', snarfblat(114)));
       }
       else if ((tdtext.indexOf("particular poltersandwich") != -1) ||               // myst
-                                                                     // opener
+          // opener
           (tdtext.indexOf("cinnabonshee") != -1)) {                           // myst not-done-yet
         $('p:last').append(AppendLink('[haunted pantry (1)]', snarfblat(113)));
       }
@@ -3313,14 +3300,14 @@ function at_choice() {
     if (square.indexOf("cellar.php") != -1) {
       if (NCText != "Results:") {
         SetCharData("square", square);	// not "Results:" means it's the
-                                       // choosing half of the choice, where
-                                       // you don't need links.
+                                        // choosing half of the choice, where
+                                        // you don't need links.
         // but it will be "Results:" after we choose something, so pass our
         // Square data onward.
       }
       else {
         link_cellar(square);			// "Results:" means it's the result of the
-                               // choice, where you need the links.
+                                  // choice, where you need the links.
       }
     }
   }
@@ -4078,8 +4065,8 @@ function at_store() {
   InlineItemDescriptions();
 
   var firstTable = $('table:first tbody');		// we're interested in this when
-                                            // it's the "Results:" box from
-                                            // buying something.
+                                              // it's the "Results:" box from
+                                              // buying something.
   var whichstore;
   var noform = 1;
 
@@ -4218,8 +4205,8 @@ function at_craft() {
   $("table:first tr:eq(2)").after(dlinks);
   mlink = $('b:contains("Results:")');
   ilink = $('a[href*="inv_use"]');	// link to install an already-owned
-                                   // campground item.  If it exists, we won't
-                                   // put up our buy button.
+                                    // campground item.  If it exists, we won't
+                                    // put up our buy button.
   var tbltext = mlink.parents('table:first').text();
   if (tbltext.indexOf("more advanced cooking appliance") != -1) {
     itemNeeded = 157;
@@ -4291,9 +4278,9 @@ function at_hermit() {
   $('img').each(function () {
     var onclick = this.getAttribute('onclick');
     if (onclick != undefined && onclick.indexOf(":item") != -1)	// Hermit calls
-                                                            // js:item(descid)
-                                                            // instead of
-                                                            // js:descitem(descid)
+                                                                 // js:item(descid)
+                                                                 // instead of
+                                                                 // js:descitem(descid)
     {
       var newclick = onclick.split(':')[0] + ":desc" + onclick.split(':')[1];
       this.setAttribute('onclick', newclick);
@@ -4962,9 +4949,9 @@ function at_charpane() {
     advcount = integer($('a:contains("Adv"):first').parent().next().text());
 
     var lvlblock = $("center:contains('Lvl.'):first").text();	// this text is
-                                                              // always present
-                                                              // in compact
-                                                              // mode
+                                                               // always present
+                                                               // in compact
+                                                               // mode
     //kolproxy fix: icon is suppressed.  look for level the other way if needed.
     if (lvlblock === undefined) {
       lvlblock = $('td:contains("Level"):first').text();
@@ -5000,8 +4987,8 @@ function at_charpane() {
     }
     else {
       SetCharData("level", 13);		// failsafe setting if we couldn't find the
-                                 // level block, generally due to a custom
-                                 // title.
+                                   // level block, generally due to a custom
+                                   // title.
       level = 13;
     }
     var $statusblock = $('img[alt*="Hit Points"]').parent().parent().parent().parent();
@@ -5166,8 +5153,11 @@ function at_charpane() {
             SetCharData('hydrate', advcount - 1);
           }
           else if (/\(5\)/.test(hydtxt) || /\(20\)/.test(hydtxt))		// got 5 turns (or 20 from
-                                                    // clover) now?  add Desert
-                                                    // link.
+                                                                     // clover)
+                                                                     // now? 
+                                                                     // add
+                                                                     // Desert
+                                                                     // link.
           {
             if (compactMode) {
               $('a[href="adventure.php?snarfblat=122"]')
@@ -5305,7 +5295,7 @@ function at_skills() {
 
   // Store list of restoratives we care about
   var vich = document.getElementsByName("whichitem");		// the MP-restorers item
-                                                       // dropdown.
+                                                         // dropdown.
   if (vich[0] != undefined) {
     var json = "{";
     var opt = vich[0].childNodes;
@@ -5349,7 +5339,7 @@ function at_skills() {
     if (temp.value == "1" && temp.name == "quantity") {
       temp.addEventListener('keydown', function (event) {
         if (event.which == 77 || event.which == 88 || event.which == 72) // 'm', 'x',
-                                                                 // 'h'
+                                                                         // 'h'
         {
           var selectItem = document.getElementsByName('whichskill')[0];
           var cost = ParseSelectQuantity(selectItem, " ");
@@ -5416,8 +5406,12 @@ function at_skills() {
     if (temp.value == "1" && temp.name == "itemquantity") {
       temp.addEventListener('keyup', function (event) {
         if (event.which == 77 || event.which == 88 || event.which == 72) // 77 = 'm',
-                                                                 // 88 = 'x',
-                                                                 // 72 = 'h'
+                                                                         // 88
+                                                                         // =
+                                                                         // 'x',
+                                                                         // 72
+                                                                         // =
+                                                                         // 'h'
         {
           var selectItem = document.getElementsByName('whichitem')[0];
           var quant = ParseSelectQuantity(selectItem, ")");
@@ -5616,7 +5610,7 @@ function at_charsheet() {
     resistance += mystBonus;
     resistance += '';	// convert to a string
     resistance = resistance.substring(0, 5);	// and chop to at most 2 decimal
-                                             // places
+                                              // places
     $(this).next().html($(this).next().html() + " (Lvl " + ProtNum + ", " + resistance + "%)");
   });
 }
@@ -5888,10 +5882,10 @@ function at_pyramid() {
     GM_get(server + 'api.php?what=inventory&for=MrScript', function (response) {
       if (response[0] != '{') {
         var i1 = response.split('inventory = ')[1].split(';')[0];	// should get
-                                                                  // everything
-                                                                  // from { to
-                                                                  // },
-                                                                  // inclusive.
+                                                                   // everything
+                                                                   // from { to
+                                                                   // },
+                                                                   // inclusive.
         response = i1;
       }
       var invcache = $.parseJSON(response); //eval('('+response+')');
@@ -5982,7 +5976,7 @@ function at_cave() {
       var descid = $('option[value="' + dooritem[door][0] + '"]').attr('descid');
       if (descid) { 	// item is in the selection list
         $('select[name="whichitem"]').attr('style', 'color:green');	// mark as
-                                                                    // selected
+                                                                     // selected
         $('option[value="' + dooritem[door][0] + '"]').attr('selected', 'selected');// select the right item
       }
       else {
@@ -6249,7 +6243,7 @@ function at_mining() {
   var staticSparkleImg = "data:image/gif;base64,R0lGODlhMgAyAOMPAP39/dvb2zc3NycnJ5qams3NzQUFBRAQEGtra6enp7W1te3t7UZGRldXV319ff///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQJAQAPACwAAAAAMgAyAAAEW/DJSau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru8rg/AUR+AAfBwCgd/OMFA4GguEQXcEJAQEQGM3ECAAUSIwkJgWn0WJwZxuu9/wuHxOr9vv+Lx+z+/77xEAIfkECQEADwAsAAAAADIAMgAABGvwyUmrvTjrzbv/YCiOZGmeaKqubOu+cCzPdG3feM4Jhm4FA18lIRBSEgzjpKDoGRmLAsJAddYaBEJAMQB4AYqbIKuILhwCRlAXWKyNWaVEKn8kEHVCo36w1v+AgYKDhIWGh4iJiouMjY4kEQAh+QQJAQAPACwAAAAAMgAyAAAEl/DJSau9OOvNu/9gKI5kaZ5oqq5s675wLLeHMXNHYd/aAAy83i+YMRQERMwhgEhefA6npQFISCmGQEJ3NTAUhYMCYRM0CMCYoYEoAAi1Adi9OMoGhXwgIDAcHAsJDEE7Bgl8eQM7TkYACotXVA1XFD6DlBIDC2mYRpyUOUiYD56jpAWXowqfpq2ur7CxsrO0tba3uLm6GhEAIfkECQEADwAsAAAAADIAMgAABGvwyUmrvTjrzbv/YCiOZGmeaKqubOu+cCzPdG3feM4Jhm4FA18lIRBSEgzjpKDoGRmLAsJAddYaBEJAMQB4AYqbIKuILhwCRlAXWKyNWaVEKn8kEHVCo36w1v+AgYKDhIWGh4iJiouMjY4kEQAh+QQJAQAPACwAAAAAMgAyAAAEW/DJSau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru8rg/AUR+AAfBwCgd/OMFA4GguEQXcEJAQEQGM3ECAAUSIwkJgWn0WJwZxuu9/wuHxOr9vv+Lx+z+/77xEAOw==";
   $("img[src*='wallsparkle']").attr("src", staticSparkleImg);
   if (document.location.search.indexOf("mine=1") != -1) {	// don't display quest data in the knob shaft (mine=2), only the dwarf mine
-  // (mine=1).
+                                                           // (mine=1).
     var oretype = GetCharData("oretype");
     var orenumber = GetCharData("orenumber");
     if (oretype != '') {
@@ -6288,7 +6282,7 @@ function at_mining() {
   $('input').click(function () {
     clearwhiches();
   });		// if mining_which is set, it's because we just reloaded the page after
-       // clicking on a square.
+         // clicking on a square.
   var which = GetCharData("mining_which");
   SetCharData("mining_which", 0);
   if (which != 0 && which !== undefined) {
@@ -6298,8 +6292,8 @@ function at_mining() {
   $('img[alt*="Open Cavern"]').each(function () {		// replace each "Open Cavern" picture with the image we saved.
     var alt = $(this).attr('alt');
     var xc = integer(alt.match(/(\d)/g)[0]);		// convert from "Open Cavern (1,
-                                              // 4) to the number in the
-                                              // "mine=1?which=xx" link.
+                                                // 4) to the number in the
+                                                // "mine=1?which=xx" link.
     var yc = integer(alt.match(/(\d)/g)[1]);
     var foo = (xc + (yc * 8));
     if (foo > 54) {
@@ -6322,7 +6316,7 @@ function at_gamestore() {
   var select = document.getElementsByTagName("select");
   if (select) {	// cards to trade in, while at the cashier.
     select[0].options.selectedIndex = 1;	// select first card, saving clicks
-                                         // for tradeins.
+                                          // for tradeins.
     var qty = document.getElementsByName("quantity");
     // put the Max Button on the last "quantity" box (out of ronin/HC, there's
     // also a "quantity" box for buying store items with credit):
@@ -6490,7 +6484,7 @@ function at_basement() {
       aa.setAttribute('href', '#');
       aa.setAttribute('id', 'usephial');
       if (curphial > 0) //if the charpane sez we're already phialed, then we have to
-                  // unphial first.
+                        // unphial first.
       {
         aa.setAttribute('curphial', "uneffect.php?using=Yep.&pwd=" + pwd + "&whicheffect=" + curphial);
       }
@@ -7732,10 +7726,10 @@ function at_topmenu() {
           .before('<a href="inventory.php?which=2" ' +
               'target="mainpane">ent</a>');
       a.after(' <a href="inventory.php?which=f0" target="mainpane">fav</a>');	// 21Dec09
-                                                                              // Hellion:
-                                                                              // added
-                                                                              // favorites
-                                                                              // link.
+                                                                               // Hellion:
+                                                                               // added
+                                                                               // favorites
+                                                                               // link.
     }
 
     // Quests
