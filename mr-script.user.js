@@ -22,6 +22,8 @@
 // @grant	      GM_deleteValue
 // @grant	      GM_xmlhttpRequest
 // @unwrap
+// @updateURL       https://raw.github.com/taeram/user-scripts/master/mr-script.user.js
+// @downloadURL     https://raw.github.com/taeram/user-scripts/master/mr-script.user.js
 // ==/UserScript==
 
 var place = location.pathname.replace(/\/|\.(php|html)$/gi, "").toLowerCase();
