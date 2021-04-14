@@ -7,8 +7,8 @@
 // @copyright       Jesse Patching
 // @version         2.3.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
-// @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
-// @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
+// @updateURL       https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
+// @downloadURL     https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
 // ==/UserScript==
 
 (function() {
