@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.2.0
+// @version         2.3.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
@@ -310,6 +310,49 @@
             if ($('#event').length > 0) {
                 $('.weaponButton').click();
             }
+
+            // Eat meat.
+            let $eat = $('#healButtons #eat');
+            if ($eat.hasClass('disabled')) {
+                $eat = null;
+            }
+
+            let hp = ADR.getHp();
+            if ($eat && hp.current < (hp.max - World.MEAT_HEAL)) {
+                console.log("Eating Meat");
+                $('#healButtons #eat').click();
+            }
+
+            // Use medicine.
+            let $meds = $('#healButtons #meds');
+            if ($meds.hasClass('disabled')) {
+                $meds = null;
+            }
+
+            hp = ADR.getHp();
+            if ($meds && (hp.current < (hp.max - World.MEDS_HEAL) || !$eat && hp.current <= hp.max / 2)) {
+                console.log("Using meds");
+                $('#healButtons #meds').click();
+            }
+        },
+
+        getHp: function () {
+            let currentHp = null;
+            let maxHp = null;
+
+            let hp = $('#wanderer .hp').text();
+            if (hp.length > 0) {
+                hp = hp.match(/(\d+)\/(\d+)/)
+                if (hp.length > 0) {
+                    currentHp = hp[1];
+                    maxHp = hp[2];
+                }
+            }
+
+            return {
+                'current': currentHp,
+                'max': maxHp
+            };
         }
     };
 
