@@ -7,8 +7,8 @@
 // @copyright       Jesse Patching
 // @version         1.0.3
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
-// @updateURL       https://raw.github.com/taeram/user-scripts/master/environment-canada-reload-every-hour.user.js
-// @downloadURL     https://raw.github.com/taeram/user-scripts/master/environment-canada-reload-every-hour.user.js
+// @updateURL       https://raw.github.com/taeram/user-scripts/master/environment_canada_reload_every_hour.user.js
+// @downloadURL     https://raw.github.com/taeram/user-scripts/master/environment_canada_reload_every_hour.user.js
 // ==/UserScript==
 
 /* jshint -W097 */
@@ -17,8 +17,8 @@
 var reloadAfter = 3600; // seconds
 var secondsElapsed = 0;
 var timerElement = $('<div style="position: absolute; right: 5px; top: 5px; color: black; font-size: 9px" id="reloadTimer">' +
-                       'Reloading in <span class="time">' + reloadAfter + '</span> seconds' +
-                     '</div>').appendTo('body');
+    'Reloading in <span class="time">' + reloadAfter + '</span> seconds' +
+    '</div>').appendTo('body');
 
 var reloadEvent = function () {
     // One more second has passed

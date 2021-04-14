@@ -44,7 +44,15 @@ const config: webpack.Configuration = {
         ],
         extensions: [".ts", ".js"],
     },
-    plugins: [],
+    plugins: [
+        new webpack.BannerPlugin({
+            banner: function (data) {
+                return fs.readFileSync(path.resolve(__dirname, "src/" + data.chunk.name + ".user.ts"), "utf-8").replace(/(==\/UserScript==)[\s\S]+$/, "$1");
+            },
+            entryOnly: true,
+            raw: true
+        })
+    ],
     externals: {
         "jquery": "jQuery"
     }
