@@ -1,0 +1,1 @@
+(()=>{"use strict";var i=3600,o=0,e=$('<div style="position: absolute; right: 5px; top: 5px; color: black; font-size: 9px" id="reloadTimer">Reloading in <span class="time">3600</span> seconds</div>').appendTo("body");setInterval((function(){o++;var t=i-o;$(e).find(".time").text(t),o>=i&&window.location.reload()}),1e3)})();

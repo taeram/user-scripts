@@ -1,0 +1,9 @@
+#!/bin/bash
+
+scriptDir=$(dirname $(greadlink -f "$0"))
+docker run -it \
+  --rm \
+  --volume $scriptDir/../:/app \
+  --workdir /app \
+  node:12 \
+  bash -c '[ ! -e /app/node_modules ] && npm install; npm run-script build'

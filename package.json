@@ -1,0 +1,33 @@
+{
+  "name": "user-scripts",
+  "version": "1.0.0",
+  "description": "A collection of Greasemonkey / Tampermonkey scripts.",
+  "dependencies": {
+    "gulp-cli": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taeram/user-scripts.git"
+  },
+  "author": "Jesse Patching",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taeram/user-scripts/issues"
+  },
+  "homepage": "https://github.com/taeram/user-scripts#readme",
+  "devDependencies": {
+    "@types/jquery": "*",
+    "@types/node": "*",
+    "@types/terser-webpack-plugin": "*",
+    "@types/webpack": "*",
+    "ts-loader": "*",
+    "ts-node": "*",
+    "tsconfig-paths": "*",
+    "typescript": "*",
+    "webpack": "*",
+    "webpack-cli": "*"
+  },
+  "scripts": {
+    "build": "TS_NODE_PROJECT=tsconfig.webpack.json npx webpack"
+  }
+}
