@@ -5,10 +5,10 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.4.0
+// @version         2.4.1
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
-// @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
-// @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
+// @updateURL       https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
+// @downloadURL     https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
 // ==/UserScript==
 
 (function() {
