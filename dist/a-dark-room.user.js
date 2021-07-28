@@ -5,10 +5,10 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.3.0
+// @version         2.4.0
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
-// @updateURL       https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
-// @downloadURL     https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
+// @updateURL       https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
+// @downloadURL     https://raw.github.com/taeram/user-scripts/master/a-dark-room.user.js
 // ==/UserScript==
 
 (function() {
@@ -307,8 +307,10 @@
         },
 
         handleFighting: function () {
-            if ($('#event').length > 0) {
+            let enemyHp = ADR.getEnemyHp();
+            if ($('#event').length > 0 && enemyHp.current > 0) {
                 $('.weaponButton').click();
+                $('#attack_bolas').click();
             }
 
             // Eat meat.
@@ -341,6 +343,25 @@
             let maxHp = null;
 
             let hp = $('#wanderer .hp').text();
+            if (hp.length > 0) {
+                hp = hp.match(/(\d+)\/(\d+)/)
+                if (hp.length > 0) {
+                    currentHp = hp[1];
+                    maxHp = hp[2];
+                }
+            }
+
+            return {
+                'current': currentHp,
+                'max': maxHp
+            };
+        },
+
+        getEnemyHp: function () {
+            let currentHp = null;
+            let maxHp = null;
+
+            let hp = $('#enemy .hp').text();
             if (hp.length > 0) {
                 hp = hp.match(/(\d+)\/(\d+)/)
                 if (hp.length > 0) {
