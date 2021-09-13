@@ -5,7 +5,7 @@
 // @match           http://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.4.1
+// @version         2.4.2
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
@@ -302,6 +302,11 @@
                 if ($('.eventTitle').text() === 'An Outpost') {
                     $('#loot_takeEverything').click();
                     $('#leave').click();
+                }
+
+                // Don't check out Penrose.
+                if ($('#give in').length > 0) {
+                    $('#ignore').click();
                 }
             }
         },
