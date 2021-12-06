@@ -5,10 +5,11 @@
 // @match           https://weather.gc.ca/city/pages/*
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.0.3
+// @version         1.0.4
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/dist/environment-canada-reload-every-hour.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/dist/environment-canada-reload-every-hour.user.js
+// @icon            https://www.google.com/s2/favicons?domain=weather.gc.ca
 // ==/UserScript==
 
 /* jshint -W097 */
