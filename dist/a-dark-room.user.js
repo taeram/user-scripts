@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name            A Dark Room - Helper
-// @namespace       http://github.com/taeram/user-scripts
+// @namespace       https://github.com/taeram/user-scripts
 // @description     Helper for A Dark Room
-// @match           http://adarkroom.doublespeakgames.com/
+// @match           https://adarkroom.doublespeakgames.com/
 // @grant           none
 // @copyright       Jesse Patching
-// @version         2.4.2
+// @version         2.4.3
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/dist/a-dark-room.user.js
