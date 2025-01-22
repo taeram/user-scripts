@@ -2,10 +2,10 @@
 // @name            Environment Canada - Reload every hour
 // @namespace       http://github.com/taeram/user-scripts
 // @description     Reloads the Environment Canada website once an hour
-// @match           https://weather.gc.ca/city/pages/*
+// @match           https://weather.gc.ca/en/location/*
 // @grant           none
 // @copyright       Jesse Patching
-// @version         1.0.4
+// @version         1.0.5
 // @license         MIT https://github.com/taeram/user-scripts/blob/master/LICENSE
 // @updateURL       https://raw.github.com/taeram/user-scripts/master/dist/environment-canada-reload-every-hour.user.js
 // @downloadURL     https://raw.github.com/taeram/user-scripts/master/dist/environment-canada-reload-every-hour.user.js
